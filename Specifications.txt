@@ -1,0 +1,69 @@
+
+Classes Principales : 
+
+  - Lieux (class Place) : 
+
+	Modelisation du terrain de jeu par un ensemble de lieux ou le joueur peut se trouver (Nous les
+différentes salles du jeux). 
+
+	On passe d'une salle à l'autre en passant par des sorties.
+
+  - Sorties (class Exit) :
+
+	Chaque lieux contient un ensemble de sorties permettant de se rendre dans les lieux voisins.
+	
+	Il peut exister plusieurs type de sorties (Je pense qu'on aura un seul type de sortie).
+	Chaque sortie connait son lieu voisin 
+	Une sortie est unidirectionnelle
+	Depuis un lieu donné, il sera donc possible de se rendre à un lieu voisin à condition d’être
+	en mesure de franchir la sortie correspondante.
+	L'ensemble des sorties d'un lieu sera stocké la forme d’un dictionnaire de type Map<String,Exit>
+permettant d’associer les noms des lieux voisins avec leur sortie correspondante.
+	Pour se rendre dans un lieu voisin, il faudra donc franchir la sortie associée à l’aide
+de la commande GO
+
+  - Objets et Personnages
+
+	Chaque lieu pourra contenir des objets et/ou des personnages avec lesquels le joueur
+pourra éventuellment interagir
+
+  - Pas d’aventure sans héros
+
+	Le jeu consiste principalement à donner des instructions au héros de votre aventure,
+pensez donc à établir ses caractéristiques (hp, liste d'objets, ...)
+	Le joueur intéragi avec le prog via la console 
+	Mettre en place un système d'analyse de flux de l'entrée standard. Le prog doit analyser mot
+par mot chaque ligne de texte entré par le joueur (Utiliser un objet Scanner instancié à partir de
+l’entrée standard System.in)
+
+  - Pas d'aventure sans objectif 
+
+	établir un but (être le dernier survivant)
+
+  - Commandes 
+
+	Le jeu doit permettre à l’utilisateur d’effectuer des actions en saisissant une suite de
+phrases
+	Saisie du caractère “fin de ligne” -> La phrase est analysée entièrement
+	Phrase bien formée == COMMAND [ARGS] avec COMMAND = une commande du jeu & ARGS une liste de mot
+éventuellement vide.
+	Commandes minimum : 
+		- GO [location] : Changement de salle, Si location éxiste & sortie est franchissable = 
+le personnage change de lieu Sinon ne bouge pas et un affichage indiquera ce qui se passe
+		- HELP : affiche la liste des commandes dispo
+		- LOOK [observables]: IF observables == 0 affiche uune description du lieu courant ELSE
+Descriptif de tout ce qui peut êter affiché dans la liste
+		- ATTACK : 
+		- TAKE takable : Ajoute (si c'est possible) l'objet à la liste d'objet du joueur 
+		- USE item1 [item2] : Utilisation de l'objet placé en argument1. Si il y a deux args
+Alors le premier objet est utilisé avec le second (Exemple : use gun bullet permet de charger gun, ce
+qui pourra être utile pour utiliser gun plus tard) 
+		- QUIT : Quitte la partie
+
+	La conception doit permettre d’ajouter simplement une nouvelle commande
+
+  - Fonctionnalités supplémentaires 
+
+	Utilisation d'un compte à rebours (classes fournies). Trouver une utilisation.
+	Gestion d'exceptions
+	Enregistrement/chargement de parties (Sérialization) 
