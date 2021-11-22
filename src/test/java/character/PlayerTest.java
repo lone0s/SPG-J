@@ -14,9 +14,13 @@ public class PlayerTest {
     }
 
     @Test
+    public void getNameTest() {
+        System.out.println(joueur.getName());
+    }
+
+    @Test
     public void toStringTest() {
-        String affichage = joueur.toString();
-        System.out.println(affichage);
+        System.out.println(joueur.toString());
     }
 
 }
