@@ -22,4 +22,12 @@ public class Player extends Character{
     public void addItem(Item item) {
         Items.add(item);
     }
+
+    /**
+     * @param item Item à supprimer
+     */
+    public void removeItem(Item item) {
+        // On boucle pour être sur de supprimer toutes les occurences de l'item.
+        while(Items.remove(item)){}
+    }
 }
