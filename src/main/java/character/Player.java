@@ -1,13 +1,15 @@
 package character;
 
 import item.Item;
+import java.util.ArrayList;
+import java.util.List;
 
 import java.util.List;
 
 public class Player extends Character{
     static final int DEFAULT_LIVE = 1;
     Boolean IsLose = false;
-    List<Item> Items;
+    List<Item> Items= new ArrayList<Item>();
 
     /**
      * @param name Nom du joueur
