@@ -7,6 +7,10 @@ public abstract class Item {
     private final String name;
     private final String description;
 
+    /**
+     * @param name Indique le nom de l'item
+     * @param description Explique l'utilisation de l'item
+     */
     Item(String name, String description) {
         this.name = name;
         this.description = description;

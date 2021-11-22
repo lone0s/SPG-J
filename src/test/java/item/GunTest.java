@@ -9,7 +9,7 @@ public class GunTest {
 
         @Before
         public void setUp() {
-            gun = new Gun("Pistolet", "Ce pistolet tue.");
+            gun = new Gun();
         }
 
         @Test

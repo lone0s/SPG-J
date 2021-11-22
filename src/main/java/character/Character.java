@@ -4,12 +4,11 @@ public abstract class Character {
 
     private final String name;
 
-    // CONSTRUCTOR
     public Character(String name){
         this.name = name;
     }
 
-    //Getter sur le nom
+    // Getter sur le nom
     public String getName() {
         return this.name;
     }
