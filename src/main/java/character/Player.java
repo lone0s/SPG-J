@@ -16,6 +16,9 @@ public class Player extends Character{
         super(name);
     }
 
+    /**
+     * @param item Item à rajouté dans la liste d'item du joueur
+     */
     public void addItem(Item item) {
         Items.add(item);
     }
