@@ -33,8 +33,10 @@ public class Player extends Character{
     }
 
     public void getItem() {
+        System.out.println("Liste d'objets :");
         for (Item item : this.Items) {
             item.printItem();
         }
+        System.out.println();
     }
 }
