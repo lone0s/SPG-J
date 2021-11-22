@@ -1,13 +1,13 @@
 package character;
 
 import item.Item;
-
+import java.util.ArrayList;
 import java.util.List;
 
 public class Player extends Character{
     static final int DEFAULT_LIVE = 1;
     Boolean IsLose = false;
-    List<Item> Items;
+    List<Item> Items= new ArrayList<Item>();
 
     /**
      * @param name Nom du joueur
@@ -27,7 +27,14 @@ public class Player extends Character{
      * @param item Item à supprimer
      */
     public void removeItem(Item item) {
+        // Méthode fonctionne mais n'est pas au top
         // On boucle pour être sur de supprimer toutes les occurences de l'item.
         while(Items.remove(item)){}
+    }
+
+    public void getItem() {
+        for (Item item : this.Items) {
+            item.printItem();
+        }
     }
 }
