@@ -27,11 +27,14 @@ public class Player extends Character{
      * @param item Item à supprimer
      */
     public void removeItem(Item item) {
+        // Méthode fonctionne mais n'est pas au top
         // On boucle pour être sur de supprimer toutes les occurences de l'item.
         while(Items.remove(item)){}
     }
 
     public void getItem() {
-        System.out.println(this.Items);
+        for (Item item : this.Items) {
+            item.printItem();
+        }
     }
 }
