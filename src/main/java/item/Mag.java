@@ -18,7 +18,7 @@ public class Mag extends Item{
 
     public void setRandomAmmo() {
         Random nbAleatory = new Random();
-        nbAmmo = nbAleatory.nextInt(MIN_AMMO, MAX_AMMO);
+        nbAmmo = MAX_AMMO + nbAleatory.nextInt(MAX_AMMO - MIN_AMMO);
     }
 
     public int getNbAmmo() {
