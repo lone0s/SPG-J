@@ -17,10 +17,11 @@ public class Knife extends Item {
         super(name, description);
     }
 
-    public int randomKill(){
-
+    /**
+     * @return Nombre aléatoire de personnes tué par un couteaux.
+     */
+    public int randomKill() {
         Random nbAleatory = new Random();
-
         return MAX_KILL + nbAleatory.nextInt(MAX_KILL - MIN_KILL);
     }
 
