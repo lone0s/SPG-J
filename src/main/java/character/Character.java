@@ -21,7 +21,7 @@ public abstract class Character {
      * @return Affichage
      */
     @Override
-    public String toString(){
+    public String toString() {
         return "[ " + this.name + " ]";
     }
 }
