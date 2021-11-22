@@ -10,7 +10,6 @@ public abstract class Item {
     Item(String name, String description) {
         this.name = name;
         this.description = description;
-
     }
 
     public abstract void use(Player player);
