@@ -17,13 +17,14 @@ public class MagTest {
     @Test
     public void getNbAmmoTest(){
         for (int compteur = 1 ; compteur <= 10 ; compteur++) {
+            mag = new Mag();
             System.out.println("Le chargeur possède " + mag.getNbAmmo() + " munitions.");
         }
     }
 
     @Test
     public void printItemTest() {
-        mag.printItem();
+            mag.printItem();
     }
 
 }

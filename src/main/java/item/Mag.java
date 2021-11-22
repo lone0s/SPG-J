@@ -11,14 +11,16 @@ public class Mag extends Item{
 
     private int nbAmmo;
 
+    // Creating a mag with a random number of bullets between 20 and 50.
     Mag() {
         super("Mag", "Utilise les chargeurs pour recharger ton arme !");
         this.setRandomAmmo();
     }
 
+    //
     public void setRandomAmmo() {
         Random nbAleatory = new Random();
-        nbAmmo = MAX_AMMO + nbAleatory.nextInt(MAX_AMMO - MIN_AMMO);
+        nbAmmo = MIN_AMMO + nbAleatory.nextInt(MAX_AMMO - MIN_AMMO + 1);
     }
 
     public int getNbAmmo() {

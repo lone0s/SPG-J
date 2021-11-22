@@ -39,12 +39,4 @@ public class Knife extends Item {
     public void use(Player player) {
     }
 
-    /**
-     * Affichage du couteaux
-     */
-    @Override
-    public void printItem() {
-        super.printItem();
-    }
-
 }
