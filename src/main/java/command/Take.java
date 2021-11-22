@@ -1,6 +1,6 @@
 package command;
 
-import code.character.Player;
+import character.Player;
 
 public class Take extends Command{
 

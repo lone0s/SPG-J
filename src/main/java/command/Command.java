@@ -1,6 +1,6 @@
 package command;
 
-import code.character.Player;
+import character.Player;
 
 import java.util.ArrayList;
 import java.util.List;

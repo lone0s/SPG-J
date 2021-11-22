@@ -1,6 +1,6 @@
 package item;
 
-import code.character.Player;
+import character.Player;
 
 import java.util.Random;
 
