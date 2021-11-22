@@ -20,6 +20,7 @@ public class MagTest {
             mag = new Mag();
             System.out.println("Le chargeur possède " + mag.getNbAmmo() + " munitions.");
         }
+
     }
 
     @Test
