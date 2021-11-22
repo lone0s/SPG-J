@@ -5,8 +5,6 @@ import character.Player;
 import java.util.Random;
 
 public class Knife extends Item {
-    private static final String name = "Couteaux";
-    private static final String description = "Ce couteaux peut être utiliser pour tuer un nombre aléatoire de personnes.";
     private int NbKill;
 
     private static final int MIN_KILL = 1;
@@ -16,7 +14,7 @@ public class Knife extends Item {
      * Ce constructeur créer un couteaux avec une explication pour l'utiliser.
      */
     public Knife() {
-        super(name, description);
+        super("Couteaux", "Ce couteaux peut être utiliser pour tuer un nombre aléatoire de personnes.");
         this.setRandomKill();
     }
 
