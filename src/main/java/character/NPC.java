@@ -1,4 +1,4 @@
-package code.character;
+package character;
 
 public class NPC extends Character {
 

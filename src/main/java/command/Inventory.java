@@ -1,4 +1,4 @@
-package code.command;
+package command;
 
 public class Inventory extends Command{
 }

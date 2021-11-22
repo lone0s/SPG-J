@@ -1,8 +1,8 @@
-package code.item;
+package item;
 
 import code.character.Player;
 
-public class Gun extends Item{
+public class Gun extends Item {
 
 
     Gun(String name, String description) {
@@ -11,8 +11,10 @@ public class Gun extends Item{
 
     @Override
     public void use(Player player) {
+    }
 
-
-
+    @Override
+    public void printItem() {
+        super.printItem();
     }
 }

@@ -1,7 +1,7 @@
-package java;
+package item;
 
 import static org.junit.Assert.*;
 
-public class ItemTest {
+public class GunTest {
 
 }

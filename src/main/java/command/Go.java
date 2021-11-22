@@ -1,8 +1,8 @@
-package code.command;
+package command;
 
 import code.character.Player;
 
-public class Take extends Command{
+public class Go extends Command{
 
     @Override
     public void executeCommand(Player player, String[] args) {

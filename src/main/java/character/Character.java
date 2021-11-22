@@ -1,4 +1,4 @@
-package code.character;
+package character;
 
 public abstract class Character {
 

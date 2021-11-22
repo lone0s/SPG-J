@@ -1,4 +1,4 @@
-package code.character;
+package character;
 
 public class Player extends Character{
 

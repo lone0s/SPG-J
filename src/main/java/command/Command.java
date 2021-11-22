@@ -1,4 +1,4 @@
-package code.command;
+package command;
 
 import code.character.Player;
 

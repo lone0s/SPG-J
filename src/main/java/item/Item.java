@@ -1,4 +1,4 @@
-package code.item;
+package item;
 
 import code.character.Player;
 
@@ -13,11 +13,9 @@ public abstract class Item {
 
     }
 
+    public abstract void use(Player player);
 
-    public abstract void use (Player player);
-
-
-    public void printItem (){
+    public void printItem () {
         System.out.println( "- " + this.name + " : " + this.description);
     }
 }
