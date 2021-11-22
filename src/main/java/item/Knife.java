@@ -7,6 +7,7 @@ import java.util.Random;
 public class Knife extends Item {
     private static final String name = "Couteaux";
     private static final String description = "Ce couteaux peut être utiliser pour tuer un nombre aléatoire de personnes.";
+
     private static final int MIN_KILL = 1;
     private static final int MAX_KILL = 5;
 

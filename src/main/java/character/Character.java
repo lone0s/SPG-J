@@ -1,21 +1,24 @@
 package character;
 
 public abstract class Character {
-
     private final String name;
 
     public Character(String name){
         this.name = name;
     }
 
-    // Getter sur le nom
+    /**
+     * @return Affiche le nom
+     */
     public String getName() {
         return this.name;
     }
 
-    // Override de toString
+    /**
+     * @return Affichage
+     */
     @Override
     public String toString(){
-        return "[" + this.name + "]";
+        return "[ " + this.name + " ]";
     }
 }
