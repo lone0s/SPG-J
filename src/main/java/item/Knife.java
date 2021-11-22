@@ -25,7 +25,7 @@ public class Knife extends Item {
      */
     public void setRandomKill() {
         Random nbAleatory = new Random();
-        NbKill = MAX_KILL + nbAleatory.nextInt(MAX_KILL - MIN_KILL);
+        NbKill = MIN_KILL + nbAleatory.nextInt(MAX_KILL - MIN_KILL + 1);
     }
 
     /**
