@@ -33,6 +33,14 @@ public class PlayerTest {
     }
 
     @Test
+    public void removeItemTest() {
+        joueur.addItem(couteaux);
+        joueur.getItem();
+        joueur.removeItem(couteaux);
+        joueur.getItem();
+    }
+
+    @Test
     public void getItemTest() {
         joueur.addItem(couteaux);
         joueur.getItem();
