@@ -1,31 +1,28 @@
 package place;
 
+import character.Character;
+import character.NPC;
 import item.Item;
 import java.util.List;
 import java.util.Map;
 
 public abstract class Place {
-    private final Map<String,Exit> Exit;    //@Param NOM_PIECE,Exit ==> Renvoie pièce principale si dans une pièce mini-jeu et inversement
-    private final List<Item> Items;         //@Param Items          ==> Indique les objets présents dans la pièce
-    private List<Character> Characters;     //@Param Characters     ==> Indique les joueurs présents dans la pièce
+    private String Name;                    //@Param Nom            ==> Renvoie nom de la pièce
+    private String Description;             //@Param Description    ==> Renvoir description de la pièce
+    private final Map<String,Exit> Exits;
+    private final Character NPC;
 
-    public Place(Map<String,Exit> myExit, List<Item> myItems, List<Character> myCharacters) {
-        this.Exit = myExit;
-        this.Items = myItems;
-        this.Characters = myCharacters;
+
+    public Place(String placeName, String placeDescription, Map<String,Exit> myExits, Character myNPC) {
+        this.Name = placeName;
+        this.Description = placeDescription;
+        this.Exit = myExits;
+        this.NPC = myNPC;
     }
 
-    public List<Character> getCharacters() {
-        return this.Characters;
-    }
+    public void useExit(String Exit){} ;
+    //public static List<Place> genAllPlaces(){} ;
 
-    public void interactCharacter(Character myChar) {
-        int i = 0;
-        while (this.Characters.get(i) != myChar) {
-            i++;
-        }
-        this.Characters.get(i).
-    }
 }
 
 
