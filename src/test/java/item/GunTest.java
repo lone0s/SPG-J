@@ -16,5 +16,4 @@ public class GunTest {
         public void testprintItem() {
             gun.printItem();
         }
-    }
 }

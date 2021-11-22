@@ -1,5 +1,5 @@
-import code.item.Item;
-import code.item.Knife;
+import item.Item;
+import item.Knife;
 
 public class Main {
 

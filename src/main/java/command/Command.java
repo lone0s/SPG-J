@@ -13,7 +13,7 @@ public abstract class Command {
     private final String help;
 
     //CONSTRUCTOR
-    public Command(String command, String help) {
+    Command(String command, String help) {
         this.command = command;
         this.help = help;
     }
@@ -28,7 +28,7 @@ public abstract class Command {
         List<Command> commandList = new ArrayList<>();
 
         commandList.add(new Quit());
-        commandList.add(new Go());
+        //commandList.add(new Go());
 
         return commandList;
     }
