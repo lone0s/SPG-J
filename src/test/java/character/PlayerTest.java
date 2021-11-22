@@ -32,4 +32,10 @@ public class PlayerTest {
         joueur.addItem(couteaux);
     }
 
+    @Test
+    public void getItemTest() {
+        joueur.addItem(couteaux);
+        joueur.getItem();
+    }
+
 }

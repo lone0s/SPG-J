@@ -4,8 +4,6 @@ import item.Item;
 import java.util.ArrayList;
 import java.util.List;
 
-import java.util.List;
-
 public class Player extends Character{
     static final int DEFAULT_LIVE = 1;
     Boolean IsLose = false;
@@ -31,5 +29,9 @@ public class Player extends Character{
     public void removeItem(Item item) {
         // On boucle pour être sur de supprimer toutes les occurences de l'item.
         while(Items.remove(item)){}
+    }
+
+    public void getItem() {
+        System.out.println(this.Items);
     }
 }
