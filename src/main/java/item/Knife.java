@@ -7,6 +7,7 @@ import java.util.Random;
 public class Knife extends Item {
     private static final String name = "Couteaux";
     private static final String description = "Ce couteaux peut être utiliser pour tuer un nombre aléatoire de personnes.";
+    private int NbKill;
 
     private static final int MIN_KILL = 1;
     private static final int MAX_KILL = 5;
@@ -16,14 +17,22 @@ public class Knife extends Item {
      */
     public Knife() {
         super(name, description);
+        this.setRandomKill();
     }
 
     /**
-     * @return Nombre aléatoire de personnes tué par un couteaux.
+     * Est appelée lors de la création du couteaux => Indique combien de personne sont tuées par le couteaux
      */
-    public int randomKill() {
+    public void setRandomKill() {
         Random nbAleatory = new Random();
-        return MAX_KILL + nbAleatory.nextInt(MAX_KILL - MIN_KILL);
+        NbKill = MAX_KILL + nbAleatory.nextInt(MAX_KILL - MIN_KILL);
+    }
+
+    /**
+     * @return Nombre de personne tuées lors de l'utilisation du couteaux
+     */
+    public int getRandomKill() {
+        return this.NbKill;
     }
 
     @Override

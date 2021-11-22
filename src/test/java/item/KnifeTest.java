@@ -19,10 +19,7 @@ public class KnifeTest {
     }
 
     @Test
-    public void randomKillTest() {
-        for (int compteur = 1 ; compteur <= 10 ; compteur++) {
-            System.out.println("Le nombre de personne tuées est de : " + couteaux.randomKill());
-        }
+    public void getRandomKillTest() {
+        System.out.println("Le couteaux tue " + couteaux.getRandomKill() + " personnes.");
     }
-
 }
