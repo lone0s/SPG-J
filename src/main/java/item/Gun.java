@@ -18,6 +18,9 @@ public class Gun extends Item {
     public void use(Player player) {
     }
 
+    /**
+     * Affichage du pistolet
+     */
     @Override
     public void printItem() {
         super.printItem();
