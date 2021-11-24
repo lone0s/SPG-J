@@ -9,7 +9,7 @@ public class NPC extends Character {
 
     // Methode pour afficher les dialogues du NPC
     public void dialog(String dialog) {
-        System.out.println(this.getName() + dialog);
+        System.out.println("[ " + this.getName() + " ] " + dialog);
     }
 
 }

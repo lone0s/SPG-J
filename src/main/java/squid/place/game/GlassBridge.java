@@ -9,9 +9,9 @@ import java.util.Scanner;
 
 public class GlassBridge extends Game {
 
-    GlassBridge() {
-        super("Glasse bridge", "The object of the game is to cross the bridge without falling on fragile glass.",
-                new NPC("RPC NPC"));
+    public GlassBridge() {
+        super("Glass bridge", "The object of the game is to cross the bridge without falling on fragile glass.",
+                new NPC("GB_NPC"));
     }
 
     @Override

@@ -10,12 +10,12 @@ import java.util.Scanner;
 public class FindNumber extends Game {
 
     private final static int MAX_NUMBER = 999;
-    private final static int MAX_ATTEMPT = 15;
+    private final static int MAX_ATTEMPT = 12;
 
     public FindNumber(){
         super("Find Number",
-                "ADD DESCRIPTION TA MERE",
-                new NPC("BOBY")
+                " In this game you have to find a number thought by the man",
+                new NPC("Square Guard")
         );
     }
 
@@ -28,7 +28,7 @@ public class FindNumber extends Game {
 
         System.out.println("\n--- Game launched ---\n");
 
-        this.getNpc().dialog("Explication des règles");
+        this.getNpc().dialog(" In this game you have to find a number thought by the man");
 
         while (attempt > 0) {
 
@@ -38,29 +38,29 @@ public class FindNumber extends Game {
                 chosenNumber = scanner.nextInt();
             } catch (Exception exception) {
                 scanner.nextLine();
-                this.getNpc().dialog("You need to write a number!");
+                this.getNpc().dialog(" You need to write a number!");
                 continue;
             }
 
             if(chosenNumber > MAX_NUMBER || chosenNumber < 0) {
-                this.getNpc().dialog("Please enter a number between 0 and 999");
+                this.getNpc().dialog(" Please enter a number between 0 and 999");
             } else {
                 attempt--;
 
                 if (attempt == 0 && chosenNumber != rand) {
-                    this.getNpc().dialog("The number was " + rand);
+                    this.getNpc().dialog(" The number was " + rand);
                     break;
                 } else {
 
                     if (rand > chosenNumber) {
-                        this.getNpc().dialog("It's more!");
+                        this.getNpc().dialog(" It's more!");
                     } else if (rand < chosenNumber) {
-                        this.getNpc().dialog("It's less!");
+                        this.getNpc().dialog(" It's less!");
                     } else {
-                        this.getNpc().dialog("Congrats you win");
+                        this.getNpc().dialog(" Congrats you win");
                         break;
                     }
-                    this.getNpc().dialog("You only have " + attempt + " attempts left!");
+                    this.getNpc().dialog(" You only have " + attempt + " attempts left!");
 
                 }
             }
