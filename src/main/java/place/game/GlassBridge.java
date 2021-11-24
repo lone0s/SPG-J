@@ -43,7 +43,7 @@ public class GlassBridge extends Game {
         }
 
         /* Pour tester
-        System.out.println("Affichage du pont :");
+        System.out.println("Affichage complet du pont :");
         bridgePrint(pont, longueurPont);
         */
 
