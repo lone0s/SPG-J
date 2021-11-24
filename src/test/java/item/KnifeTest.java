@@ -8,6 +8,7 @@ import static org.junit.Assert.*;
 public class KnifeTest {
     private Knife couteaux;
 
+
     @Before
     public void setUp() {
         couteaux = new Knife();
