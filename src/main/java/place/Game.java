@@ -7,7 +7,7 @@ public abstract class Game extends Place {
 
     public static int NB_GAMES = 0;
 
-   public Game(String name, String description, NPC npc){
+    public Game(String name, String description, NPC npc){
        super(name, description, npc);
    }
 
