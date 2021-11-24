@@ -10,18 +10,17 @@ import java.util.Scanner;
 public class GlassBridge extends Game {
 
     GlassBridge() {
-        super("Glasse bridge", "Le but est de traverser le pont sans tomber sur un verre fragile.",
+        super("Glasse bridge", "The object of the game is to cross the bridge without falling on fragile glass.",
                 new NPC("RPC NPC"));
     }
 
     @Override
     public void play(Player player) {
-
         int longueurPont = 10;
         int progression = 0;
         boolean gameWin = false;
         boolean[][] pont = new boolean[longueurPont][2];
-        // Pour savoir si le retour chariot est /r ou /n (windows ou linux)
+        // Savoir si le retour chariot est /r ou /n (windows ou linux)
         String newLine = System.lineSeparator();
 
         // Initialisation du pont
@@ -52,15 +51,15 @@ public class GlassBridge extends Game {
             String choixUtilisateur = "";
 
             if (progression != 0) {
-                System.out.println("Rapel du chemin parcouru :");
+                System.out.println("Reminder of the distance traveled :");
                 bridgePrint(pont, progression);
             }
 
             while (!choixUtilisateur.equalsIgnoreCase("l") && !choixUtilisateur.equalsIgnoreCase("r")) {
                 Scanner scanner = new Scanner(System.in);
 
-                System.out.println(newLine + "Veuillez choisir si vous voulez avancer sur la plateforme de gauche ou de droite.");
-                System.out.print("Pour cela, tapez l (left) ou r (right) : ");
+                System.out.println(newLine + "Please choose whether you want to jump on the left or right platform.");
+                System.out.print("To do this, type l (left) or r (right) : ");
 
                 choixUtilisateur = scanner.nextLine();
             }
