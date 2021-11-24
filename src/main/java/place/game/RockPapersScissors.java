@@ -22,8 +22,8 @@ public class RockPapersScissors extends Game {
 
     public RockPapersScissors(){
         super("Rock, Papers, Scissors :",
-                "In this game you need to beat at roshambo the man who is in front of you.\\n Type \\\"play\\\" to start the game.",
-                new NPC("RPC NPC")
+                "In this game you need to beat the man who is in front of you.\\n Type \\\"play\\\" to start the game.",
+                new NPC("RPC_NPC")
         );
     }
 
