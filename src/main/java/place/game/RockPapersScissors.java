@@ -42,7 +42,7 @@ public class RockPapersScissors extends Game {
 
         this.getNpc().dialog(" I take you in 3 rounds !");
 
-        while (playerPoint < POINT_TO_WIN && NPCPoint < POINT_TO_WIN){
+        while (playerPoint < POINT_TO_WIN || NPCPoint < POINT_TO_WIN){
 
             String playerTurn = getPlayerTurn(player);
             int NPCTurn = getNPCTurn();
@@ -55,7 +55,7 @@ public class RockPapersScissors extends Game {
         }
 
         if (playerPoint == POINT_TO_WIN) {
-            this.getNpc().dialog("GG ta win FD¨P");
+            this.getNpc().dialog("GG ta win FDP");
         } else {
             this.getNpc().dialog("ET c'est la lose");
         }
@@ -88,7 +88,7 @@ public class RockPapersScissors extends Game {
         return playerTurn;
     }
 
-    private boolean checkPlayerTurn(String playerTurn){
+    public boolean checkPlayerTurn(String playerTurn){
         for (String proposition : choice) {
             if (playerTurn.equals(proposition)) {
                 return true;
@@ -98,7 +98,7 @@ public class RockPapersScissors extends Game {
     }
 
 
-    private void printPoint(String name){
+    public void printPoint(String name){
 
         int point;
         if (name.equals(this.getNpc().getName())){
@@ -114,7 +114,7 @@ public class RockPapersScissors extends Game {
                 " point(s).");
     }
 
-    private void checkWinner(String playerTurn, int NPCTurn){
+    public void checkWinner(String playerTurn, int NPCTurn){
         NPC npc = this.getNpc();
 
         if (playerTurn.equals(choice[NPCTurn])) {
