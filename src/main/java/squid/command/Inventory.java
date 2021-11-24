@@ -5,12 +5,14 @@ import squid.character.Player;
 public class Inventory extends Command {
 
 
-    Inventory(String command, String help) {
-        super(command, help);
+    public Inventory() {
+        super("inventory", "[*] inventory : Print your inventory");
     }
 
     @Override
     public void executeCommand(Player player, String[] args) {
+
+        player.printInventory();
 
     }
 }

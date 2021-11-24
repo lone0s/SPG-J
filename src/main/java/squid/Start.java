@@ -1,9 +1,12 @@
 package squid;
 
+
+
+
+import squid.character.NPC;
 import squid.character.Player;
-import squid.place.game.FindNumber;
-import squid.place.game.GlassBridge;
-import squid.place.game.RockPapersScissors;
+import squid.command.Help;
+import squid.place.Place;
 
 import java.util.Scanner;
 
@@ -13,9 +16,6 @@ public class Start {
 
     public static void main(String[] args) {
 
-        RockPapersScissors gb = new RockPapersScissors();
-        Player player = new Player("George");
-        gb.play(player);
 
     }
 }

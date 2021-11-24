@@ -16,6 +16,10 @@ public abstract class Item {
         this.description = description;
     }
 
+    public String getName(){
+        return this.name;
+    }
+
     public abstract void use(Player player);
 
     public void printItem () {

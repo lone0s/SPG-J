@@ -35,6 +35,9 @@ public class Knife extends Item {
 
     @Override
     public void use(Player player) {
+
+
+        player.removeItem(this);
     }
 
 }

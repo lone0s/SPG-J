@@ -22,13 +22,19 @@ public abstract class Command {
         return command;
     }
 
+    public void printHelp() {
+        System.out.println(this.help);
+    }
+
     public abstract void executeCommand(Player player, String[] args);
 
     private static List<Command> generateCommands(){
         List<Command> commandList = new ArrayList<>();
 
         commandList.add(new Quit());
-        //commandList.add(new Go());
+        commandList.add(new Inventory());
+        commandList.add(new Play());
+        commandList.add(new Help());
 
         return commandList;
     }

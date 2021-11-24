@@ -10,7 +10,7 @@ public class Gun extends Item {
     /**
      * Ce constructeur créer un pistolet avec une explication pour l'utiliser.
      */
-    Gun() {
+    public Gun() {
         super(name, description);
     }
 

@@ -3,14 +3,17 @@ package squid.character;
 import squid.item.Knife;
 import org.junit.Before;
 import org.junit.Test;
+import squid.place.Place;
 
 public class PlayerTest {
     private Player joueur;
     private Knife couteaux;
+    private Place place;
 
     @Before
     public void setUp() {
-        joueur = new Player("Joueur 1");
+        place = new Place("Mj1", "Random desc", new NPC("Thierry"));
+        joueur = new Player("Joueur 1", place);
         couteaux = new Knife();
     }
 
@@ -32,15 +35,24 @@ public class PlayerTest {
     @Test
     public void removeItemTest() {
         joueur.addItem(couteaux);
-        joueur.getItem();
         joueur.removeItem(couteaux);
-        joueur.getItem();
+    }
+
+    @Test
+    public void printEmptyInventoryTest(){
+        joueur.printInventory();
+    }
+
+    @Test
+    public void printInventoryTest(){
+        joueur.addItem(couteaux);
+        joueur.printInventory();
     }
 
     @Test
     public void getItemTest() {
         joueur.addItem(couteaux);
-        joueur.getItem();
+        joueur.getItems();
     }
 
 }
