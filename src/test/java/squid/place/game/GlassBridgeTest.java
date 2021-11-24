@@ -1,7 +1,7 @@
-package place.game;
+package squid.place.game;
 
-import character.Player;
-import item.Knife;
+import squid.character.Player;
+import squid.item.Knife;
 
 import static org.junit.Assert.*;
 import org.junit.Before;
