@@ -22,8 +22,8 @@ public class RockPapersScissors extends Game {
 
     public RockPapersScissors(){
         super("Rock, Papers, Scissors :",
-                "In this game you need to beat the man who is in front of you.\\n Type \\\"play\\\" to start the game.",
-                new NPC("RPC_NPC")
+                "In this game you need to beat the man who is in front of you.",
+                new NPC("Circle Guard")
         );
     }
 
@@ -40,7 +40,7 @@ public class RockPapersScissors extends Game {
         }
         System.out.println("Good luck!");
 
-        this.getNpc().dialog(" I take you in 3 rounds !");
+        this.getNpc().dialog("I take you in 3 rounds !");
 
         while (playerPoint < POINT_TO_WIN && NPCPoint < POINT_TO_WIN){
 
@@ -68,7 +68,7 @@ public class RockPapersScissors extends Game {
     private int getNPCTurn(){
         int rand = (int)(Math.random()*3);
 
-        this.getNpc().dialog(choice[rand]);
+        this.getNpc().dialog(": " + choice[rand]);
 
         return rand;
     }
@@ -107,11 +107,7 @@ public class RockPapersScissors extends Game {
             point = playerPoint;
         }
 
-        System.out.println("- " +
-                name +
-                " : " +
-                point +
-                " point(s).");
+        System.out.println("- " + name + " : " + point + " point(s).");
     }
 
     public void checkWinner(String playerTurn, int NPCTurn){
@@ -120,10 +116,8 @@ public class RockPapersScissors extends Game {
         if (playerTurn.equals(choice[NPCTurn])) {
             npc.dialog("Draw, I will get you in the next round !");
         } else if (playerTurn.equals(choice[(NPCTurn+1)%3])){
-            npc.dialog("Bruh, I lose");
             playerPoint++;
         } else {
-            npc.dialog("I win, I'm juste the boss !");
             NPCPoint++;
         }
     }

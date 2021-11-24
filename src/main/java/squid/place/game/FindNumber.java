@@ -71,6 +71,5 @@ public class FindNumber extends Game {
 
         System.out.println("\n--- Game finished ---\n");
 
-
     }
 }

@@ -13,10 +13,9 @@ public class Start {
 
     public static void main(String[] args) {
 
-        FindNumber gb = new FindNumber();
+        RockPapersScissors gb = new RockPapersScissors();
         Player player = new Player("George");
         gb.play(player);
-
 
     }
 }
