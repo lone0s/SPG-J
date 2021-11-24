@@ -1,7 +1,7 @@
 
  Un joueur : - 1 vie
 	     - un nom
-	     - liste d'item
+	     - liste d'squid.item
 
  Le but être le dernier survivant !
 

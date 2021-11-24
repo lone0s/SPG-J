@@ -32,7 +32,7 @@ pourra éventuellment interagir
 	Le jeu consiste principalement à donner des instructions au héros de votre aventure,
 pensez donc à établir ses caractéristiques (hp, liste d'objets, ...)
 	Le joueur intéragi avec le prog via la console 
-	Mettre en place un système d'analyse de flux de l'entrée standard. Le prog doit analyser mot
+	Mettre en squid.place un système d'analyse de flux de l'entrée standard. Le prog doit analyser mot
 par mot chaque ligne de texte entré par le joueur (Utiliser un objet Scanner instancié à partir de
 l’entrée standard System.in)
 
