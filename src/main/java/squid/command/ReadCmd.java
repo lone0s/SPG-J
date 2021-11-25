@@ -2,7 +2,7 @@ package squid.command;
 
 import squid.character.Player;
 
-public abstract class Interpreter {
+public abstract class ReadCmd {
 
     // To interpret a command
     public static void interpretCommand(Player player, String command) {
@@ -30,7 +30,7 @@ public abstract class Interpreter {
             @Override
             public void executeCommand(Player player, String[] args) {
                 System.out.println("| Unknown command\n" +
-                        "| Type help for have the command list");
+                        "[*] Type help to get the list of commands");
             }
         };
     }

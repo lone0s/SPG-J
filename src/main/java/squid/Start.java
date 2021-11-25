@@ -1,7 +1,7 @@
 package squid;
 
 import squid.character.Player;
-import squid.command.Interpreter;
+import squid.command.ReadCmd;
 import squid.place.Place;
 
 import java.util.List;
@@ -27,7 +27,7 @@ public class Start {
         while (!player.getIsLose()) {
             System.out.print(player);
             command = scanner.nextLine();
-            Interpreter.interpretCommand(player, command);
+            ReadCmd.interpretCommand(player, command);
         }
 
     }
