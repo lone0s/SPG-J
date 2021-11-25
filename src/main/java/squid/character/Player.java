@@ -55,14 +55,6 @@ public class Player extends Character{
                 " has been removed from your inventory");
     }
 
-    /* public void getItem() {
-        System.out.println("Liste d'objets :");
-        for (Item item : this.Items) {
-            item.printItem();
-        }
-        System.out.println();
-    }*/
-
     public List<Item> getItems() {
         return this.items;
     }

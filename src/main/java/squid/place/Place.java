@@ -1,6 +1,12 @@
 package squid.place;
 
 import squid.character.NPC;
+import squid.place.game.FindNumber;
+import squid.place.game.GlassBridge;
+import squid.place.game.RockPapersScissors;
+
+import java.util.ArrayList;
+import java.util.List;
 
 public class Place {
     /**
@@ -38,7 +44,27 @@ public class Place {
    // }
 
     public void useExit(String Exit){};
-    //public static List<Place> genAllPlaces(){} ;
+
+
+    public static List<Place> genAllPlaces(){
+        List<Place> placeList = new ArrayList<>();
+
+        NPC mainnpc = new NPC("Triangle Guard");
+
+
+        // Hub
+        placeList.add(new Place("Main room",
+                "[*] This is the principal place of the game",
+                mainnpc));
+
+        placeList.add(new FindNumber());
+        placeList.add(new RockPapersScissors());
+        placeList.add(new GlassBridge());
+
+        return placeList;
+    }
+
+
 
 }
 
