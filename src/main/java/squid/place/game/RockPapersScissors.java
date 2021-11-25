@@ -59,7 +59,7 @@ public class RockPapersScissors extends Game {
         } else {
             this.getNpc().dialog("ET c'est la lose");
         }
-
+        System.out.println("[*] Press enter for finish the game !");
         Start.scanner.nextLine();
 
         System.out.println("\n--- Game finished ---\n");
