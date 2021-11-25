@@ -3,8 +3,14 @@ package squid.place;
 import squid.character.NPC;
 
 public class Place {
-    private final String name;                    //@Param Nom            ==> Renvoie nom de la pièce
-    private final String description;             //@Param Description    ==> Renvoir description de la pièce
+    /**
+     * Nom de la pièce
+     */
+    private final String name;
+    /**
+     * Description de la pièce
+     */
+    private final String description;
     //private final List<Exit> exitList;
     private final NPC npc;
 
@@ -16,6 +22,9 @@ public class Place {
         //this.exitList = new ArrayList<>();
     }
 
+    /**
+     * @return Nom de la pièce
+     */
     public String getName() {
         return this.name;
     }

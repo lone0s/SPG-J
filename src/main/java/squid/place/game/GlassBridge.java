@@ -26,6 +26,8 @@ public class GlassBridge extends Game {
         // Initialisation du pont
         boolean pontInitialiser = false;
 
+        System.out.println("\n--- Game launched ---\n");
+
         while (!pontInitialiser) {
             for (int compteur = 0 ; compteur < longueurPont ; compteur++) {
                 boolean leftBox;
