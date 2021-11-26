@@ -49,6 +49,7 @@ public class FindNumber extends Game {
 
                 if (attempt == 0 && chosenNumber != rand) {
                     this.getNpc().dialog(" The number was " + rand);
+                    this.lose(player);
                     break;
                 } else {
 
@@ -57,7 +58,7 @@ public class FindNumber extends Game {
                     } else if (rand < chosenNumber) {
                         this.getNpc().dialog(" It's less!");
                     } else {
-                        this.getNpc().dialog(" Congrats you win");
+                        this.winner();
                         break;
                     }
                     this.getNpc().dialog(" You only have " + attempt + " attempts left!");

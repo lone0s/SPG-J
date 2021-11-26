@@ -33,7 +33,7 @@ public class Player extends Character{
         return this.isLose;
     }
 
-    private void lose(){
+    public void setIsLose(){
         this.isLose = true;
     }
     /**

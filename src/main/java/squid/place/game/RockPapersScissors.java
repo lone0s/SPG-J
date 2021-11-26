@@ -55,9 +55,9 @@ public class RockPapersScissors extends Game {
         }
 
         if (playerPoint == POINT_TO_WIN) {
-            this.getNpc().dialog("GG ta win FDP");
+            this.winner();
         } else {
-            this.getNpc().dialog("ET c'est la lose");
+            this.lose(player);
         }
         System.out.println("[*] Press enter for finish the game !");
         Start.scanner.nextLine();
