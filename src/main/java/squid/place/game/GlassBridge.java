@@ -80,10 +80,10 @@ public class GlassBridge extends Game {
         }
 
         if (gameWin) {
-            System.out.println(newLine + "Vous avez gagné !");
+            winner();
         }
         else {
-            System.out.println(newLine + "Perdu");
+            lose(player);
         }
     }
 
