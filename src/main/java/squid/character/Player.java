@@ -83,5 +83,6 @@ public class Player extends Character{
         }
     }
 
-
+    public void useExit(String mapDest) {
+    }
 }
