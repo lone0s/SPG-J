@@ -20,7 +20,7 @@ public class Start {
 
         String username = scanner.nextLine();
 
-        Player player = new Player(username, placeList.get(0));
+        Player player = new Player(username, placeList.get(0),placeList);
 
         player.getPlace().getNpc().dialog("Welcome to the squid game plagiat game");
 

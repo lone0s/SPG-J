@@ -11,8 +11,8 @@ import java.util.Random;
 public class TicTacToe extends Game {
     public TicTacToe() {
         super("Crabs", "Description du jeu",
-                new NPC("GB_NPC")/*,
-                genExit2Ways(new HashMap<String, Exit>(),"Crabs","Main Room")*/)
+                new NPC("GB_NPC"),
+                genExit2Ways(new HashMap<String, Exit>(),"Crabs","Main Room"))
         ;
     }
 

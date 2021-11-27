@@ -17,8 +17,8 @@ public class FindNumber extends Game {
     public FindNumber(){
         super("Find Number",
                 " In this game you have to find a number thought by the man",
-                new NPC("Square Guard")/*,
-                genExit2Ways(new HashMap<String, Exit>(),"Find Number","Main Room")*/
+                new NPC("Square Guard"),
+                genExit2Ways(new HashMap<String, Exit>(),"Find Number","Main Room")
         );
     }
 

@@ -11,7 +11,7 @@ public class Exit {
      */
     private String Destination;
 
-    public Exit(String mapSrc, String mapDst){
+    public Exit(String mapSrc, String mapDst) {
         this.Source = mapSrc;
         this.Destination = mapDst;
     }
@@ -22,5 +22,12 @@ public class Exit {
 
     public String getDest() {
         return this.Destination;
+    }
+
+    @Override
+    public String toString() {
+        //if(!this.Destination.equals(this.Source)) {
+            return ("[" + this.Source + "] --> [" + this.Destination + "]");
+        //}
     }
 }

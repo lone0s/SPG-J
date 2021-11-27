@@ -14,15 +14,16 @@ public class Player extends Character{
     private Place cur_place;
     private Boolean isLose = false;
     private final List<Item> items;
-
+    private final List<Place> world;
     /**
      * @param name Nom du joueur
      */
-    public Player(String name, Place p) {
+    public Player(String name, Place p, List<Place> World) {
         super(name);
         this.cur_place = p;
         this.isLose = false;
         this.items = new ArrayList<>();
+        this.world = World;
     }
 
     public Place getPlace(){
@@ -84,5 +85,8 @@ public class Player extends Character{
     }
 
     public void useExit(String mapDest) {
+        if ((!mapDest.equals(this.cur_place.getName())) && (this.cur_place.getExits().containsKey(mapDest))) {
+            this.cur_place = Place.findPlace(mapDest,this.world);
+        }
     }
 }

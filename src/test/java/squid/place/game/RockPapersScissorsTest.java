@@ -4,19 +4,26 @@ import squid.character.NPC;
 import squid.character.Player;
 import org.junit.Before;
 import org.junit.Test;
+import squid.exit.Exit;
 import squid.place.Place;
+
+import java.util.ArrayList;
+import java.util.HashMap;
+import java.util.List;
 
 public class RockPapersScissorsTest {
 
     private RockPapersScissors rps;
     private Player player;
     private Place place;
+    List<Place> world ;
 
     @Before
     public void setUp() {
-        place = new Place("Mj1", "Random desc", new NPC("Thierry"));
+        List<Place> mywld = new ArrayList<Place>();
+        place = new Place("Mj1", "Random desc", new NPC("Thierry"),Place.genExit2Ways(new HashMap<String, Exit>(),"Mj1","Hub"));
         rps = new RockPapersScissors();
-        player = new Player("George", place);
+        player = new Player("George", place,mywld);
     }
 
     @Test

@@ -27,8 +27,8 @@ public class RockPapersScissors extends Game {
 
         super("Rock, Papers, Scissors",
                 "In this game you need to beat the man who is in front of you.",
-                new NPC("Circle Guard")/*,
-                genExit2Ways(new HashMap<String,Exit>(),"Rock, Papers, Scissors","Main Room")*/
+                new NPC("Circle Guard"),
+                genExit2Ways(new HashMap<String,Exit>(),"Rock, Papers, Scissors","Main Room")
         );
     }
 

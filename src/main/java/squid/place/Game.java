@@ -12,8 +12,8 @@ public abstract class Game extends Place {
 
     public static int NB_GAMES = 0;
 
-    public Game(String name, String description, NPC npc/*, HashMap<String, Exit> exits*/){
-       super(name, description, npc/*,exits*/);
+    public Game(String name, String description, NPC npc, HashMap<String, Exit> exits){
+       super(name, description, npc,exits);
    }
 
     public abstract void play(Player player);
