@@ -16,7 +16,7 @@ public class GlassBridge extends Game {
 
     @Override
     public void play(Player player) {
-        int longueurPont = 10;
+        int longueurPont = 5;
         int progression = 0;
         boolean gameWin = false;
         boolean[][] pont = new boolean[longueurPont][2];
