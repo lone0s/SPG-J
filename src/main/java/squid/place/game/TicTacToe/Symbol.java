@@ -27,6 +27,9 @@ public class Symbol {
         }
     }
 
+    /**
+     * @param symbol Creation du symbole de l'ordinateur
+     */
     Symbol(String symbol) {
         if (checkValiditySymbol(symbol)) {
             this.Symbol = symbol;
@@ -37,6 +40,10 @@ public class Symbol {
         }
     }
 
+    /**
+     * @param symbol Symbole a vérifier
+     * @return True si le symbole est valide
+     */
     private boolean checkValiditySymbol(String symbol) {
         return symbol.equals("X") || symbol.equals("O");
     }
