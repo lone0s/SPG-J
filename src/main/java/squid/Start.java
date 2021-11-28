@@ -13,6 +13,7 @@ public class Start {
 
     public static void main(String[] args) {
 
+
         String command;
         List<Place> placeList = Place.genAllPlaces();
 

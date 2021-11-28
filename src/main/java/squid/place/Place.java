@@ -12,6 +12,8 @@ import java.util.HashMap;
 import java.util.List;
 
 public class Place {
+
+    private int nbPlayer = 456;
     /**
      * Nom de la pièce
      */
@@ -42,8 +44,13 @@ public class Place {
         return this.npc;
     }
 
+    public int getNbPlayer(){
+        return this.nbPlayer;
+    }
 
-
+    public void setNbPlayer(int nbPlayer){
+        this.nbPlayer = nbPlayer;
+    }
 
     public static List<Place> genAllPlaces(){
         List<Place> placeList = new ArrayList<>();

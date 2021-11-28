@@ -17,6 +17,11 @@ public class GlassBridge extends Game {
     }
 
     @Override
+    public void removePlayer() {
+
+    }
+
+    @Override
     public void play(Player player) {
         int longueurPont = 5;
         int progression = 0;

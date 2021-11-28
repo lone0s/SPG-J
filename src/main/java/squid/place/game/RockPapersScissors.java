@@ -33,6 +33,11 @@ public class RockPapersScissors extends Game {
     }
 
     @Override
+    public void removePlayer() {
+
+    }
+
+    @Override
     public void play(Player player) {
 
         playerPoint = 0;

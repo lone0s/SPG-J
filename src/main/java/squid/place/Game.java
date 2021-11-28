@@ -13,10 +13,12 @@ public abstract class Game extends Place {
     public static int NB_GAMES = 0;
 
     public Game(String name, String description, NPC npc, HashMap<String, Exit> exits){
-       super(name, description, npc,exits);
+       super(name, description, npc, exits);
    }
 
     public abstract void play(Player player);
+
+    public abstract void removePlayer();
 
     public void winner(){
         System.out.println("[*] : Congratulations, you have won " + this.getName() + " mini-game, you can go back to the hub !");

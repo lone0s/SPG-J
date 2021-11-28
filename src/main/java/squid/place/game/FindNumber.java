@@ -5,6 +5,7 @@ import squid.character.Player;
 import squid.exit.Exit;
 import squid.place.Game;
 import squid.Start;
+import squid.place.Place;
 
 import java.util.HashMap;
 import java.util.Scanner;
@@ -18,6 +19,13 @@ public class FindNumber extends Game {
         super("Find Number",
                 " In this game you have to find a number thought by the man",
                 new NPC("Square Guard"),genExit2Ways(new HashMap<String,Exit>(),"Find Number","Main Room"));
+    }
+
+    @Override
+    public void removePlayer() {
+        int nbPlayer = getNbPlayer() / 2;
+        setNbPlayer(nbPlayer);
+        System.out.println("Il reste maintenant " + nbPlayer + " players !");
     }
 
     @Override
@@ -59,6 +67,7 @@ public class FindNumber extends Game {
                     } else if (rand < chosenNumber) {
                         this.getNpc().dialog(" It's less!");
                     } else {
+                        this.removePlayer();
                         this.winner();
                         break;
                     }
@@ -74,4 +83,6 @@ public class FindNumber extends Game {
         System.out.println("\n--- Game finished ---\n");
 
     }
+
+
 }

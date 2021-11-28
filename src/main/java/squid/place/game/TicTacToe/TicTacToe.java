@@ -18,6 +18,11 @@ public class TicTacToe extends Game {
     }
 
     @Override
+    public void removePlayer() {
+
+    }
+
+    @Override
     public void play(Player player) {
         Scanner scanner = new Scanner(System.in);
         boolean playerStart = playerStartFirst();
