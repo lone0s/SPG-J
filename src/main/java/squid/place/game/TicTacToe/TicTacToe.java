@@ -90,6 +90,9 @@ public class TicTacToe extends Game {
         System.out.println("\n--- Game finished ---\n");
     }
 
+    /**
+     * @return print explanation on the numbering of the game grid
+     */
     private String printExplanationsGameGrid() {
         // Savoir si le retour chariot est /r ou /n (windows ou linux)
         String newLine = System.lineSeparator();
