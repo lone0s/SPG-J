@@ -8,6 +8,7 @@ import squid.Start;
 import squid.place.Place;
 
 import java.util.HashMap;
+import java.util.Random;
 import java.util.Scanner;
 
 public class FindNumber extends Game {
@@ -23,7 +24,9 @@ public class FindNumber extends Game {
 
     @Override
     public void removePlayer() {
-        int nbPlayer = getNbPlayer() / 2;
+        int nbPlayer = getNbPlayer();
+        Random nbAleatory = new Random();
+        nbPlayer = 25 + nbAleatory.nextInt(nbPlayer/2 - 25 + 1);
         setNbPlayer(nbPlayer);
         System.out.println("Il reste maintenant " + nbPlayer + " players !");
     }

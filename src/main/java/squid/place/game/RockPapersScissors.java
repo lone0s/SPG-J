@@ -34,7 +34,9 @@ public class RockPapersScissors extends Game {
 
     @Override
     public void removePlayer() {
-
+        int nbPlayer = getNbPlayer() / 2;
+        setNbPlayer(nbPlayer);
+        System.out.println("Il reste maintenant " + nbPlayer + " players !");
     }
 
     @Override
@@ -66,6 +68,7 @@ public class RockPapersScissors extends Game {
 
         if (playerPoint == POINT_TO_WIN) {
             this.winner();
+            this.removePlayer();
         } else {
             this.lose(player);
         }
