@@ -39,9 +39,10 @@ public class TicTacToe extends Game {
         // On donne le symbole restant à l'ordinateur
         Symbol symbolNPC = symbolNPC(symbolPlayer);
 
+        this.getNpc().dialog(this.printExplanationsGameGrid());
+
         // Tant que le jeu n'est pas terminé
         while (winPlay(boardGame, symbolPlayer, symbolNPC).getSymbol().equals("NULL") && numberPossibleMoves(boardGame) != 0) {
-            System.out.println("Nombre possible = " + numberPossibleMoves(boardGame));
             if (playerStart) {
                 boolean playOK = false;
                 IntPair intPair = new IntPair(-1, -1);
@@ -52,7 +53,7 @@ public class TicTacToe extends Game {
                     int nombre = 0;
 
                     while (nombre <= 0 || nombre > 9) {
-                        System.out.print("Veuillez choisir la case : ");
+                        this.getNpc().dialog("Veuillez choisir la case :");
 
                         if (scanner.hasNextInt()) {
                             nombre = scanner.nextInt();
@@ -79,6 +80,7 @@ public class TicTacToe extends Game {
             winner();
         }
         else if (winPlay(boardGame, symbolPlayer, symbolNPC).getSymbol().equals(symbolNPC.getSymbol())) {
+            boardGame.printBoardGame();
             lose(player);
         }
         else {
@@ -86,6 +88,16 @@ public class TicTacToe extends Game {
         }
         scanner.nextLine();
         System.out.println("\n--- Game finished ---\n");
+    }
+
+    private String printExplanationsGameGrid() {
+        // Savoir si le retour chariot est /r ou /n (windows ou linux)
+        String newLine = System.lineSeparator();
+
+        return "Each square of the game grid is numbered such as :" + newLine
+                + "[1]  [2]  [3]" + newLine
+                + "[4]  [5]  [6]" + newLine
+                + "[7]  [8]  [9]";
     }
 
     /**
