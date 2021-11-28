@@ -199,14 +199,8 @@ public class TicTacToe extends Game {
         // [ ][ ][ ]     [ ][ ][ ]     [X][X][X]
         for (int ligne = 0 ; ligne < 3 ; ligne++) {
             if (boardGame.getBoardGame()[ligne][0].getPlayer().getSymbol().equals(boardGame.getBoardGame()[ligne][1].getPlayer().getSymbol())
-                    && boardGame.getBoardGame()[ligne][1].getPlayer().getSymbol().equals(boardGame.getBoardGame()[ligne][2].getPlayer().getSymbol())
-                    && !(boardGame.getBoardGame()[ligne][2].getPlayer().getSymbol().equals("NULL"))) {
-                if (boardGame.getBoardGame()[ligne][2].getPlayer().getSymbol().equals(symbolPlayer.getSymbol())) {
-                    return symbolPlayer;
-                }
-                else {
-                    return symbolNPC;
-                }
+                    && boardGame.getBoardGame()[ligne][1].getPlayer().getSymbol().equals(boardGame.getBoardGame()[ligne][2].getPlayer().getSymbol())) {
+                return boardGame.getBoardGame()[ligne][2].getPlayer();
             }
         }
 
@@ -215,14 +209,8 @@ public class TicTacToe extends Game {
         // [X][ ][ ]     [ ][X][ ]     [ ][ ][X]
         for (int colonne = 0 ; colonne < 3 ; colonne++) {
             if (boardGame.getBoardGame()[0][colonne].getPlayer().getSymbol().equals(boardGame.getBoardGame()[1][colonne].getPlayer().getSymbol())
-                    && boardGame.getBoardGame()[1][colonne].getPlayer().getSymbol().equals(boardGame.getBoardGame()[2][colonne].getPlayer().getSymbol())
-                    && !(boardGame.getBoardGame()[2][colonne].getPlayer().getSymbol().equals("NULL"))) {
-                if (boardGame.getBoardGame()[2][colonne].getPlayer().getSymbol().equals(symbolPlayer.getSymbol())) {
-                    return symbolPlayer;
-                }
-                else {
-                    return symbolNPC;
-                }
+                    && boardGame.getBoardGame()[1][colonne].getPlayer().getSymbol().equals(boardGame.getBoardGame()[2][colonne].getPlayer().getSymbol())) {
+                return boardGame.getBoardGame()[2][colonne].getPlayer();
             }
         }
 
@@ -230,28 +218,16 @@ public class TicTacToe extends Game {
         // [ ][X][ ]
         // [ ][ ][X]
         if (boardGame.getBoardGame()[0][0].getPlayer().getSymbol().equals(boardGame.getBoardGame()[1][1].getPlayer().getSymbol())
-                && boardGame.getBoardGame()[1][1].getPlayer().getSymbol().equals(boardGame.getBoardGame()[2][2].getPlayer().getSymbol())
-                && !(boardGame.getBoardGame()[2][2].getPlayer().getSymbol().equals("NULL"))) {
-            if (boardGame.getBoardGame()[2][2].getPlayer().getSymbol().equals(symbolPlayer.getSymbol())) {
-                return symbolPlayer;
-            }
-            else {
-                return symbolNPC;
-            }
+                && boardGame.getBoardGame()[1][1].getPlayer().getSymbol().equals(boardGame.getBoardGame()[2][2].getPlayer().getSymbol())) {
+            return boardGame.getBoardGame()[1][1].getPlayer();
         }
 
         // [ ][ ][X]
         // [ ][X][ ]
         // [X][ ][ ]
         else if (boardGame.getBoardGame()[0][2].getPlayer().getSymbol().equals(boardGame.getBoardGame()[1][1].getPlayer().getSymbol())
-                && boardGame.getBoardGame()[1][1].getPlayer().getSymbol().equals(boardGame.getBoardGame()[2][0].getPlayer().getSymbol())
-                && !(boardGame.getBoardGame()[2][0].getPlayer().getSymbol().equals("NULL"))) {
-            if (boardGame.getBoardGame()[2][0].getPlayer().getSymbol().equals(symbolPlayer.getSymbol())) {
-                return symbolPlayer;
-            }
-            else {
-                return symbolNPC;
-            }
+                && boardGame.getBoardGame()[1][1].getPlayer().getSymbol().equals(boardGame.getBoardGame()[2][0].getPlayer().getSymbol())) {
+            return boardGame.getBoardGame()[1][1].getPlayer();
         }
 
         else {
@@ -289,7 +265,7 @@ public class TicTacToe extends Game {
 
         // If this maximizer's move
         if (isMax) {
-            int best = -1000;
+            int bestScore = -1000;
 
             // Traverse all cells
             for (int ligne = 0; ligne < 3; ligne++) {
@@ -300,14 +276,14 @@ public class TicTacToe extends Game {
                         boardGame.getBoardGame()[ligne][colonne].setPlayer(symbolNPC);
 
                         // Call minimax recursively and choose the maximum value
-                        best = Math.max(best, minimax(boardGame, depth + 1, !isMax, symbolNPC, symbolPlayer));
+                        bestScore = Math.max(bestScore, minimax(boardGame, depth + 1, !isMax, symbolNPC, symbolPlayer));
 
                         // Undo the move
                         boardGame.getBoardGame()[ligne][colonne].setPlayer(new Symbol("NULL"));
                     }
                 }
             }
-            return best;
+            return bestScore;
         }
         else {
             int best = 1000;
@@ -330,7 +306,7 @@ public class TicTacToe extends Game {
     }
 
     IntPair findBestMove(BoardGame boardGame, Symbol symbolNPC, Symbol symbolPlayer) {
-        int bestVal = -1000;
+        int bestScore = -1000;
         IntPair intPair = new IntPair(-1, -1);
 
         for (int ligne = 0 ; ligne < 3 ; ligne++) {
@@ -342,12 +318,13 @@ public class TicTacToe extends Game {
 
                     int moveVal = minimax(boardGame, 0, false, symbolNPC, symbolPlayer);
 
+                    // Anule le coup
                     boardGame.getBoardGame()[ligne][colonne].setPlayer(new Symbol("NULL"));
 
-                    if (moveVal > bestVal) {
+                    if (moveVal > bestScore) {
                         intPair.setNumber1(ligne);
                         intPair.setNumber2(colonne);
-                        bestVal = moveVal;
+                        bestScore = moveVal;
                     }
                 }
             }
