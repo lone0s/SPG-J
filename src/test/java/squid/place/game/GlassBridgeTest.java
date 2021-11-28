@@ -23,10 +23,10 @@ public class GlassBridgeTest {
 
     @Before
     public void setUp() {
-        List<Place> myWld = new ArrayList<>();
+        world = new ArrayList<>();
         place = new Place("Mj1", "Random desc", new NPC("Thierry"),Place.genExit2Ways(new HashMap<String, Exit>(),"Mj1","Hub"));
-        myWld.add(place);
-        player = new Player("George", place,myWld);
+        world.add(place);
+        player = new Player("George", place,world);
         pontVerre = new GlassBridge();
     }
 

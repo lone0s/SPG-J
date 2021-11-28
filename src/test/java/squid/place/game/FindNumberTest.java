@@ -20,18 +20,17 @@ public class FindNumberTest {
 
     @Before
     public void setUp() {
-        List<Place> myWld = new ArrayList<>();
-        myWld.add( new Place("Mj1", "Random desc", new NPC("Thierry"),Place.genExit2Ways(new HashMap<String, Exit>(),"Mj1","Hub")));
-        //place = new Place("Mj1", "Random desc", new NPC("Thierry"),Place.genExit2Ways(new HashMap<String, Exit>(),"Mj1","Hub"));
+        world = new ArrayList<>();
+        place = new Place("Mj1", "Random desc", new NPC("Thierry"),Place.genExit2Ways(new HashMap<String, Exit>(),"Mj1","Hub"));
+        world.add(place);
         findNumber = new FindNumber();
-        player = new Player("HOHOHOHOHOHOHOHOOO", myWld.get(0), myWld/*place*/ );
+        player = new Player("HOHOHOHOHOHOHOHOOO", place, world );
     }
 
     @Test
     public void playTest(){
 
-        //findNumber.play(player);
-        System.out.println(place.allExits());
+        findNumber.play(player);
     }
 
 }

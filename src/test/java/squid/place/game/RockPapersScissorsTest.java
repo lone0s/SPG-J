@@ -20,10 +20,10 @@ public class RockPapersScissorsTest {
 
     @Before
     public void setUp() {
-        List<Place> mywld = new ArrayList<Place>();
+        world = new ArrayList<Place>();
         place = new Place("Mj1", "Random desc", new NPC("Thierry"),Place.genExit2Ways(new HashMap<String, Exit>(),"Mj1","Hub"));
         rps = new RockPapersScissors();
-        player = new Player("George", place,mywld);
+        player = new Player("George", place,world);
     }
 
     @Test

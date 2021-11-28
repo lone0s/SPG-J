@@ -2,6 +2,8 @@ package squid.command;
 
 import squid.character.Player;
 
+import java.util.Scanner;
+
 public class Go extends Command{
 
 

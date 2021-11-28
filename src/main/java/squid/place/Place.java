@@ -50,15 +50,15 @@ public class Place {
 
         NPC mainnpc = new NPC("Triangle Guard");
         HashMap<String,Exit> hubExits = new HashMap<>();
-
+        HashMap<String,Exit> fdNbr = new HashMap<>();
         // Exits Hub
-        genExit2Ways(hubExits,"Main room","Rock, Papers, Scissors");
-        genExit2Ways(hubExits,"Main Room","Glass bridge");
+        genExit2Ways(hubExits,"Main Room","Rock, Papers, Scissors");
+        genExit2Ways(hubExits,"Main Room","Glass Bridge");
         genExit2Ways(hubExits, "Main Room","Find Number");
-        genExit2Ways(hubExits,"Main Room","Crabs");
-
+        //genExit2Ways(hubExits,"Main Room","Crabs");
+        genExit2Ways(fdNbr,"Find Number","Main Room");
         // Hub
-        placeList.add(new Place("Main room",
+        placeList.add(new Place("Main Room",
                 "[*] This is the principal place of the game",
                 mainnpc, hubExits));
 
@@ -70,15 +70,16 @@ public class Place {
     }
 
     public static Place findPlace (String placeName, List<Place> map) {
-        HashMap<String,Exit> researchedPlaceExit = new HashMap<>();
-        Place researchedPlace = new Place("null","null",new NPC("null"),researchedPlaceExit);
-        for (int cpt = 0 ; cpt < map.size() ; cpt ++) {
-            if (map.get(cpt).getName().equals(placeName)) {
-                researchedPlace = map.get(cpt);
+        int indice = 0;
+        for(int i = 0; i < map.size(); i++) {
+            if (map.get(i).getName().equals(placeName)) {
+                indice = i;
             }
         }
-        return researchedPlace;
+        return map.get(indice);
     }
+
+
     public HashMap<String,Exit> getExits(){
         return this.exits;
     }

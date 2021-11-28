@@ -19,9 +19,10 @@ public class TicTacToeTest {
 
     @Before
     public void setUp() {
-        List<Place> myWld = new ArrayList<Place>();
+        world = new ArrayList<Place>();
         place = new Place("Mj1", "Random desc", new NPC("Thierry"),Place.genExit2Ways(new HashMap<String, Exit>(),"Mj1","Hub"));
-        player = new Player("Alessandro", place,myWld);
+        world.add(place);
+        player = new Player("Alessandro", place,world);
         crabs = new TicTacToe();
     }
 

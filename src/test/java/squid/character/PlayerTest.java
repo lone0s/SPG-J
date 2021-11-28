@@ -13,13 +13,14 @@ import java.util.List;
 public class PlayerTest {
     private Player joueur;
     private Knife couteaux;
-    //private Place place;
+    private Place place;
     private List<Place> world;
 
     @Before
     public void setUp() {
-        List<Place> world = new ArrayList<Place>();
-        world.add(new Place("Mj1", "Random desc", new NPC("Thierry"),Place.genExit2Ways(new HashMap<String,Exit>(),"Mj1","Hub")));
+        List<Place> world = new ArrayList<>();
+        place = new Place("Mj1", "Random desc", new NPC("Thierry"),Place.genExit2Ways(new HashMap<String,Exit>(),"Mj1","Hub"));
+        world.add(place);
         world.add(new Place("Hub","Rdm Desc",new NPC ("Henry"),Place.genExit2Ways(new HashMap<String,Exit>(),"Hub","Mj1")));
         joueur = new Player("Joueur 1", world.get(0),world);
         couteaux = new Knife();

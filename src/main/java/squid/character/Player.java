@@ -85,7 +85,7 @@ public class Player extends Character{
     }
 
     public void useExit(String mapDest) {
-        if ((!mapDest.equals(this.cur_place.getName())) && (this.cur_place.getExits().containsKey(mapDest))) {
+        if ((this.cur_place.getExits().containsKey(mapDest)) /*&& (!mapDest.equals(this.cur_place.getName()))*/) {
             this.cur_place = Place.findPlace(mapDest,this.world);
         }
     }
