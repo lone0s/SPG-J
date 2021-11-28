@@ -71,11 +71,6 @@ public class TicTacToe extends Game {
         else {
             winner();
         }
-
-
-
-
-
     }
 
     /**
@@ -282,8 +277,7 @@ public class TicTacToe extends Game {
     private int minimax(BoardGame boardGame, int depth, boolean isMax, Symbol symbolNPC, Symbol symbolPlayer) {
         int score = winPlayToInt(boardGame, symbolNPC, symbolPlayer);
 
-        // If Maximizer has won the game return his/her evaluated score
-        // If Minimizer has won the game return his/her evaluated score
+        // If Maximizer has won the game return his/her evaluated score If Minimizer has won the game return his/her evaluated score
         if (score == 10 || score == -10) {
             return score;
         }
@@ -321,15 +315,12 @@ public class TicTacToe extends Game {
             // Traverse all cells
             for (int ligne = 0 ; ligne < 3 ; ligne++) {
                 for (int colonne = 0 ; colonne < 3 ; colonne++) {
-                    // Check if cell is empty
                     if (boardGame.getBoardGame()[ligne][colonne].getPlayer().getSymbol().equals("NULL")) {
-                        // Make the move
+
                         boardGame.getBoardGame()[ligne][colonne].setPlayer(symbolPlayer);
 
-                        // Call minimax recursively and choose the minimum value
                         best = Math.min(best, minimax(boardGame, depth + 1, !isMax, symbolNPC, symbolPlayer));
 
-                        // Undo the move
                         boardGame.getBoardGame()[ligne][colonne].setPlayer(new Symbol("NULL"));
                     }
                 }
@@ -342,7 +333,6 @@ public class TicTacToe extends Game {
         int bestVal = -1000;
         IntPair intPair = new IntPair(-1, -1);
 
-        // Traverse all cells, evaluate minimax function for all empty cells. And return the cell with optimal value.
         for (int ligne = 0 ; ligne < 3 ; ligne++) {
             for (int colonne = 0 ; colonne < 3 ; colonne++) {
                 // Check if cell is empty
@@ -350,13 +340,10 @@ public class TicTacToe extends Game {
                     // Make the move
                     boardGame.getBoardGame()[ligne][colonne].setPlayer(symbolNPC);
 
-                    // compute evaluation function for this move.
                     int moveVal = minimax(boardGame, 0, false, symbolNPC, symbolPlayer);
 
-                    // Undo the move
                     boardGame.getBoardGame()[ligne][colonne].setPlayer(new Symbol("NULL"));
 
-                    // If the value of the current move is more than the best value, then update best
                     if (moveVal > bestVal) {
                         intPair.setNumber1(ligne);
                         intPair.setNumber2(colonne);
