@@ -62,7 +62,7 @@ public class Place {
         genExit2Ways(hubExits,"Main Room","Rock, Papers, Scissors");
         genExit2Ways(hubExits,"Main Room","Glass Bridge");
         genExit2Ways(hubExits, "Main Room","Find Number");
-        //genExit2Ways(hubExits,"Main Room","Crabs");
+        genExit2Ways(hubExits,"Main Room","TicTacToe");
         genExit2Ways(fdNbr,"Find Number","Main Room");
         // Hub
         placeList.add(new Place("Main Room",
