@@ -28,7 +28,7 @@ public class FindNumber extends Game {
         Random nbAleatory = new Random();
         nbPlayer = 25 + nbAleatory.nextInt(nbPlayer/2 - 25 + 1);
         setNbPlayer(nbPlayer);
-        System.out.println("Il reste maintenant " + nbPlayer + " players !");
+        System.out.println("[*] Il reste maintenant " + nbPlayer + " players !");
     }
 
     @Override
@@ -70,8 +70,8 @@ public class FindNumber extends Game {
                     } else if (rand < chosenNumber) {
                         this.getNpc().dialog(" It's less!");
                     } else {
-                        this.removePlayer();
                         this.winner();
+                        this.removePlayer();
                         break;
                     }
                     this.getNpc().dialog(" You only have " + attempt + " attempts left!");

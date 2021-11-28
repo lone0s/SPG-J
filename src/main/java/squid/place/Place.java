@@ -42,6 +42,10 @@ public class Place {
         return this.name;
     }
 
+    public void getDescription(){
+        System.out.println(this.description);
+    }
+
     public NPC getNpc() {
         return this.npc;
     }

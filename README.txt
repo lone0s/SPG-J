@@ -10,7 +10,7 @@ Java SE link
 
 - Open a command terminal into the game directory
 
-- Run the command " java -jar gamename;jar "
+- Run the command " java -jar spg.jar "
 
 - Have fun
 

@@ -20,6 +20,10 @@ public abstract class Item {
         return this.name;
     }
 
+    public void getDescription(){
+        System.out.println(this.description);
+    }
+
     public abstract void use(Player player);
 
     public void printItem () {
