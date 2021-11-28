@@ -4,7 +4,9 @@ import squid.character.NPC;
 import squid.exit.Exit;
 import squid.place.game.FindNumber;
 import squid.place.game.GlassBridge;
+import squid.place.game.MarblesGame;
 import squid.place.game.RockPapersScissors;
+import squid.place.game.TicTacToe.TicTacToe;
 
 import java.util.ArrayList;
 import java.util.Collection;
@@ -53,26 +55,30 @@ public class Place {
     }
 
     public static List<Place> genAllPlaces(){
-        List<Place> placeList = new ArrayList<>();
 
+        List<Place> placeList = new ArrayList<>();
         NPC mainnpc = new NPC("Triangle Guard");
         HashMap<String,Exit> hubExits = new HashMap<>();
         HashMap<String,Exit> fdNbr = new HashMap<>();
+
         // Exits Hub
+
         genExit2Ways(hubExits,"Main Room","Rock, Papers, Scissors");
         genExit2Ways(hubExits,"Main Room","Glass Bridge");
         genExit2Ways(hubExits, "Main Room","Find Number");
         genExit2Ways(hubExits,"Main Room","TicTacToe");
-        genExit2Ways(fdNbr,"Find Number","Main Room");
+        genExit2Ways(hubExits,"Main Room","Marbles Game");
+
         // Hub
+
         placeList.add(new Place("Main Room",
                 "[*] This is the principal place of the game",
                 mainnpc, hubExits));
-
         placeList.add(new FindNumber());
         placeList.add(new RockPapersScissors());
         placeList.add(new GlassBridge());
-
+        placeList.add(new TicTacToe());
+        placeList.add(new MarblesGame());
         return placeList;
     }
 
