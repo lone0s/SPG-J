@@ -19,7 +19,11 @@ public class TicTacToe extends Game {
 
     @Override
     public void removePlayer() {
-
+        int nbPlayer = getNbPlayer();
+        Random nbAleatory = new Random();
+        nbPlayer = 25 + nbAleatory.nextInt(nbPlayer/2 - 25 + 1);
+        setNbPlayer(nbPlayer);
+        System.out.println("Il reste maintenant " + nbPlayer + " players !");
     }
 
     @Override
@@ -71,6 +75,7 @@ public class TicTacToe extends Game {
             }
         }
         if (winPlay(boardGame, symbolPlayer, symbolNPC).getSymbol().equals(symbolPlayer.getSymbol())) {
+            this.removePlayer();
             winner();
         }
         else if (winPlay(boardGame, symbolPlayer, symbolNPC).getSymbol().equals(symbolNPC.getSymbol())) {
@@ -79,10 +84,12 @@ public class TicTacToe extends Game {
         else {
             System.out.println("Partie null.");
         }
+        scanner.nextLine();
+        System.out.println("\n--- Game finished ---\n");
     }
 
     /**
-     * @return True si le joueur commence en premier
+     * @return True if the player starts first
      */
     private boolean playerStartFirst() {
         Random random = new Random();
@@ -90,8 +97,8 @@ public class TicTacToe extends Game {
     }
 
     /**
-     * @param numberBox Plateau du jeu du morpion
-     * @return Couple d'entier  d'indices correspondants à la case
+     * @param numberBox Number corresponding to the square of the Tic Tac Toe game board
+     * @return Pair of integers corresponding to the square of the Tic Tac Toe game board
      */
     private IntPair numberBoxToIntPair(int numberBox) {
         IntPair intPair;
@@ -112,8 +119,8 @@ public class TicTacToe extends Game {
     }
 
     /**
-     * @param symbolPlayer Symbole du joueur
-     * @return Symbole du NPC
+     * @param symbolPlayer Player symbol
+     * @return NPC symbol
      */
     private Symbol symbolNPC(Symbol symbolPlayer) {
         Symbol symbolNPC;
@@ -129,8 +136,8 @@ public class TicTacToe extends Game {
     }
 
     /**
-     * @param boardGame Plateau du jeu du morpion
-     * @return True s'il est possible de placer un pion (on ne s'occupe pas si la partie est gagné)
+     * @param boardGame Tic Tac Toe game board
+     * @return True if it is possible to place a pawn (we don't care if the game is won)
      */
     boolean movementIsPossiblePawn(BoardGame boardGame) {
         boolean movementPossiblePawn = false;
@@ -149,8 +156,8 @@ public class TicTacToe extends Game {
     }
 
     /**
-     * @param boardGame Plateau du jeu du morpion
-     * @return Nombre de choix possible
+     * @param boardGame Tic Tac Toe game board
+     * @return Number of possible movements
      */
     private int numberPossibleMoves(BoardGame boardGame) {
         int numberPossibleMove = 0;
@@ -166,6 +173,12 @@ public class TicTacToe extends Game {
         return numberPossibleMove;
     }
 
+    /**
+     * @param boardGame Tic Tac Toe game board
+     * @param symbolPlayer Player symbol
+     * @param symbolNPC NPC symbol
+     * @return
+     */
     private Symbol winPlay(BoardGame boardGame, Symbol symbolPlayer, Symbol symbolNPC) {
 
         // [X][X][X]     [ ][ ][ ]     [ ][ ][ ]
@@ -209,6 +222,12 @@ public class TicTacToe extends Game {
         }
     }
 
+    /**
+     * @param boardGame Tic Tac Toe game board
+     * @param symbolPlayer Player symbol
+     * @param symbolNPC NPC symbol
+     * @return Turns the current state of the game into a "point"
+     */
     private int winPlayToInt(BoardGame boardGame, Symbol symbolPlayer, Symbol symbolNPC) {
         Symbol symbol = winPlay(boardGame, symbolPlayer, symbolNPC);
 
@@ -224,6 +243,14 @@ public class TicTacToe extends Game {
     }
 
 
+    /**
+     * @param boardGame Tic Tac Toe game board
+     * @param depth tree travel depth
+     * @param isMax Indicates whether we are looking for the player or the computer
+     * @param symbolPlayer Player symbol
+     * @param symbolNPC NPC symbol
+     * @return
+     */
     private int minimax(BoardGame boardGame, int depth, boolean isMax, Symbol symbolPlayer, Symbol symbolNPC) {
         int score = winPlayToInt(boardGame, symbolNPC, symbolPlayer);
 
@@ -279,6 +306,12 @@ public class TicTacToe extends Game {
         }
     }
 
+    /**
+     * @param boardGame Tic Tac Toe game board
+     * @param symbolNPC NPC symbol
+     * @param symbolPlayer Player symbol
+     * @return Better move with more chance of the computer winning
+     */
     IntPair findBestMove(BoardGame boardGame, Symbol symbolNPC, Symbol symbolPlayer) {
         int bestScore = -1000;
         IntPair intPair = new IntPair(-1, -1);
@@ -307,8 +340,8 @@ public class TicTacToe extends Game {
     }
 
     /**
-     * @param boardGame Plateau du jeu de morpion
-     * @return Un tableau de couple d'entier correspondant aux cases avec possibilitée de jouer
+     * @param boardGame Tic Tac Toe game board
+     * @return An integer pair table corresponding to the boxes with the possibility of playing
      */
     private IntPair[] possibleMoves(BoardGame boardGame) {
         int numberPossibleMove = numberPossibleMoves(boardGame);
@@ -328,6 +361,11 @@ public class TicTacToe extends Game {
         return possibleMoves;
     }
 
+    /**
+     * @param boardGame Tic Tac Toe game board
+     * @param intPair integer couple in order to check the validity of this move
+     * @return True if the move is valid
+     */
     private boolean possibleMovesOK(BoardGame boardGame, IntPair intPair) {
         int numberPossibleMoves = numberPossibleMoves(boardGame);
         IntPair[] possibleMoves = possibleMoves(boardGame);
