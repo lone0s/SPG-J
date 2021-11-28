@@ -31,7 +31,7 @@ public class Symbol {
      * @param symbol Creation du symbole de l'ordinateur
      */
     Symbol(String symbol) {
-        if (checkValiditySymbol(symbol)) {
+        if (checkValiditySymbol(symbol) || symbol.equals("NULL") || symbol.equals("AUTRE")) {
             this.Symbol = symbol;
         }
         else {
@@ -48,6 +48,9 @@ public class Symbol {
         return symbol.equals("X") || symbol.equals("O");
     }
 
+    /**
+     * @return Symbole associé ("X" ou "O")
+     */
     public String getSymbol() {
         return this.Symbol;
     }
