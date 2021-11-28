@@ -11,9 +11,9 @@ import java.util.Scanner;
 
 public class TicTacToe extends Game {
     public TicTacToe() {
-        super("Crabs", "Description du jeu",
+        super("TicTacToe", "Description du jeu",
                 new NPC("GB_NPC"),
-                genExit2Ways(new HashMap<String,Exit>(),"Crabs","Main Room"))
+                genExit2Ways(new HashMap<String,Exit>(),"TicTacToe","Main Room"))
         ;
     }
 
