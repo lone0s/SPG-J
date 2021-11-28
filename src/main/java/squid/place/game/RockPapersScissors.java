@@ -2,9 +2,11 @@ package squid.place.game;
 
 import squid.character.NPC;
 import squid.character.Player;
+import squid.exit.Exit;
 import squid.place.Game;
 import squid.Start;
 
+import java.util.HashMap;
 import java.util.Scanner;
 
 public class RockPapersScissors extends Game {
@@ -21,9 +23,12 @@ public class RockPapersScissors extends Game {
     };
 
     public RockPapersScissors(){
-        super("Rock, Papers, Scissors :",
+
+
+        super("Rock, Papers, Scissors",
                 "In this game you need to beat the man who is in front of you.",
-                new NPC("Circle Guard")
+                new NPC("Circle Guard"),
+                genExit2Ways(new HashMap<String,Exit>(),"Rock, Papers, Scissors","Main Room")
         );
     }
 

@@ -2,9 +2,11 @@ package squid.place.game;
 
 import squid.character.NPC;
 import squid.character.Player;
+import squid.exit.Exit;
 import squid.place.Game;
 import squid.Start;
 
+import java.util.HashMap;
 import java.util.Scanner;
 
 public class FindNumber extends Game {
@@ -15,7 +17,8 @@ public class FindNumber extends Game {
     public FindNumber(){
         super("Find Number",
                 " In this game you have to find a number thought by the man",
-                new NPC("Square Guard")
+                new NPC("Square Guard"),
+                genExit2Ways(new HashMap<String, Exit>(),"Find Number","Main Room")
         );
     }
 

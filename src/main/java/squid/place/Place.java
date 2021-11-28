@@ -1,11 +1,14 @@
 package squid.place;
 
 import squid.character.NPC;
+import squid.exit.Exit;
 import squid.place.game.FindNumber;
 import squid.place.game.GlassBridge;
 import squid.place.game.RockPapersScissors;
 
 import java.util.ArrayList;
+import java.util.Collection;
+import java.util.HashMap;
 import java.util.List;
 
 public class Place {
@@ -17,15 +20,15 @@ public class Place {
      * Description de la pièce
      */
     private final String description;
-    //private final List<Exit> exitList;
+    private final HashMap<String,Exit> exits;
     private final NPC npc;
 
 
-    public Place(String placeName, String placeDescription, NPC myNPC) {
+    public Place(String placeName, String placeDescription, NPC myNPC,HashMap<String,Exit> Exits) {
         this.name = placeName;
         this.description = placeDescription;
         this.npc = myNPC;
-        //this.exitList = new ArrayList<>();
+        this.exits = new HashMap<>(Exits);
     }
 
     /**
@@ -39,23 +42,25 @@ public class Place {
         return this.npc;
     }
 
-   // public List<Exit> getExitList() {
-   //    return this.exitList;
-   // }
 
-    public void useExit(String Exit){};
 
 
     public static List<Place> genAllPlaces(){
         List<Place> placeList = new ArrayList<>();
 
         NPC mainnpc = new NPC("Triangle Guard");
+        HashMap<String,Exit> hubExits = new HashMap<>();
 
+        // Exits Hub
+        genExit2Ways(hubExits,"Main room","Rock, Papers, Scissors");
+        genExit2Ways(hubExits,"Main Room","Glass bridge");
+        genExit2Ways(hubExits, "Main Room","Find Number");
+        genExit2Ways(hubExits,"Main Room","Crabs");
 
         // Hub
         placeList.add(new Place("Main room",
                 "[*] This is the principal place of the game",
-                mainnpc));
+                mainnpc, hubExits));
 
         placeList.add(new FindNumber());
         placeList.add(new RockPapersScissors());
@@ -63,6 +68,36 @@ public class Place {
 
         return placeList;
     }
+
+    public static Place findPlace (String placeName, List<Place> map) {
+        HashMap<String,Exit> researchedPlaceExit = new HashMap<>();
+        Place researchedPlace = new Place("null","null",new NPC("null"),researchedPlaceExit);
+        for (int cpt = 0 ; cpt < map.size() ; cpt ++) {
+            if (map.get(cpt).getName().equals(placeName)) {
+                researchedPlace = map.get(cpt);
+            }
+        }
+        return researchedPlace;
+    }
+    public HashMap<String,Exit> getExits(){
+        return this.exits;
+    }
+
+    public Collection<Exit> allExits() {
+        return this.exits.values();
+    }
+
+
+
+    //public static boolean hasExit(Collection<Exit> mapExits,String mapName) {}
+    public static HashMap<String,Exit> genExit2Ways(HashMap<String,Exit> Exits,String mapSrc, String mapDest) {
+        Exit Src2Dest = new Exit(mapSrc,mapDest);
+        Exit Dest2Src = new Exit(mapDest,mapSrc);
+        Exits.put(Src2Dest.getDest(), Src2Dest);
+        Exits.put(Dest2Src.getDest(), Dest2Src);
+        return Exits;
+    }
+
 
 
 

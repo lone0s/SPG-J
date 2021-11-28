@@ -3,15 +3,17 @@ package squid.place;
 import squid.character.NPC;
 import squid.character.Player;
 import squid.command.Play;
+import squid.exit.Exit;
 
+import java.util.HashMap;
 import java.util.Locale;
 
 public abstract class Game extends Place {
 
     public static int NB_GAMES = 0;
 
-    public Game(String name, String description, NPC npc){
-       super(name, description, npc);
+    public Game(String name, String description, NPC npc, HashMap<String, Exit> exits){
+       super(name, description, npc,exits);
    }
 
     public abstract void play(Player player);

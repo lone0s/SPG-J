@@ -2,15 +2,19 @@ package squid.place.game.TicTacToe;
 
 import squid.character.NPC;
 import squid.character.Player;
+import squid.exit.Exit;
 import squid.place.Game;
 
+import java.util.HashMap;
 import java.util.Random;
 import java.util.Scanner;
 
 public class TicTacToe extends Game {
     public TicTacToe() {
         super("Crabs", "Description du jeu",
-                new NPC("GB_NPC"));
+                new NPC("GB_NPC"),
+                genExit2Ways(new HashMap<String, Exit>(),"Crabs","Main Room"))
+        ;
     }
 
     @Override
