@@ -250,7 +250,7 @@ public class TicTacToe extends Game {
     }
 
 
-    private int minimax(BoardGame boardGame, int depth, boolean isMax, Symbol symbolNPC, Symbol symbolPlayer) {
+    private int minimax(BoardGame boardGame, int depth, boolean isMax, Symbol symbolPlayer, Symbol symbolNPC) {
         int score = winPlayToInt(boardGame, symbolNPC, symbolPlayer);
 
         // If Maximizer has won the game return his/her evaluated score If Minimizer has won the game return his/her evaluated score
@@ -276,7 +276,7 @@ public class TicTacToe extends Game {
                         boardGame.getBoardGame()[ligne][colonne].setPlayer(symbolNPC);
 
                         // Call minimax recursively and choose the maximum value
-                        bestScore = Math.max(bestScore, minimax(boardGame, depth + 1, !isMax, symbolNPC, symbolPlayer));
+                        bestScore = Math.max(bestScore, minimax(boardGame, depth + 1, !isMax, symbolPlayer, symbolNPC));
 
                         // Undo the move
                         boardGame.getBoardGame()[ligne][colonne].setPlayer(new Symbol("NULL"));
@@ -295,7 +295,7 @@ public class TicTacToe extends Game {
 
                         boardGame.getBoardGame()[ligne][colonne].setPlayer(symbolPlayer);
 
-                        best = Math.min(best, minimax(boardGame, depth + 1, !isMax, symbolNPC, symbolPlayer));
+                        best = Math.min(best, minimax(boardGame, depth + 1, !isMax, symbolPlayer, symbolNPC));
 
                         boardGame.getBoardGame()[ligne][colonne].setPlayer(new Symbol("NULL"));
                     }
@@ -316,7 +316,7 @@ public class TicTacToe extends Game {
                     // Make the move
                     boardGame.getBoardGame()[ligne][colonne].setPlayer(symbolNPC);
 
-                    int moveVal = minimax(boardGame, 0, false, symbolNPC, symbolPlayer);
+                    int moveVal = minimax(boardGame, 0, false, symbolPlayer, symbolNPC);
 
                     // Anule le coup
                     boardGame.getBoardGame()[ligne][colonne].setPlayer(new Symbol("NULL"));
