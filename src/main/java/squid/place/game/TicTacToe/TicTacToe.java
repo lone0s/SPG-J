@@ -31,7 +31,7 @@ public class TicTacToe extends Game {
         Symbol symbolNPC = symbolNPC(symbolPlayer);
 
         // Tant que le jeu n'est pas terminé
-        while (winPlay(boardGame, symbolPlayer, symbolNPC).getSymbol().equals("NULL")) {
+        while (winPlay(boardGame, symbolPlayer, symbolNPC).getSymbol().equals("NULL") || numberPossibleMoves(boardGame) == 0) {
             if (playerStart) {
                 boolean playOK = false;
                 IntPair intPair = new IntPair(-1, -1);
