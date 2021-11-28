@@ -31,7 +31,8 @@ public class TicTacToe extends Game {
         Symbol symbolNPC = symbolNPC(symbolPlayer);
 
         // Tant que le jeu n'est pas terminé
-        while (winPlay(boardGame, symbolPlayer, symbolNPC).getSymbol().equals("NULL") || numberPossibleMoves(boardGame) == 0) {
+        while (winPlay(boardGame, symbolPlayer, symbolNPC).getSymbol().equals("NULL") && numberPossibleMoves(boardGame) != 0) {
+            System.out.println("Nombre possible = " + numberPossibleMoves(boardGame));
             if (playerStart) {
                 boolean playOK = false;
                 IntPair intPair = new IntPair(-1, -1);
@@ -64,12 +65,14 @@ public class TicTacToe extends Game {
                 playerStart = true;
             }
         }
-        if (playerStart) {
-            boardGame.printBoardGame();
+        if (winPlay(boardGame, symbolPlayer, symbolNPC).getSymbol().equals(symbolPlayer.getSymbol())) {
+            winner();
+        }
+        else if (winPlay(boardGame, symbolPlayer, symbolNPC).getSymbol().equals(symbolNPC.getSymbol())) {
             lose(player);
         }
         else {
-            winner();
+            System.out.println("Partie null.");
         }
     }
 
@@ -101,40 +104,6 @@ public class TicTacToe extends Game {
         }
 
         return intPair;
-    }
-
-    private int intPairToNumberBox(IntPair intPair) {
-        int numberBox;
-
-        if (intPair.getNumber1() == 0 && intPair.getNumber2() == 0) {
-            numberBox = 1;
-        }
-        else if (intPair.getNumber1() == 0 && intPair.getNumber2() == 1) {
-            numberBox = 2;
-        }
-        else  if (intPair.getNumber1() == 0 && intPair.getNumber2() == 2) {
-            numberBox = 3;
-        }
-        else  if (intPair.getNumber1() == 1 && intPair.getNumber2() == 0) {
-            numberBox = 4;
-        }
-        else  if (intPair.getNumber1() == 1 && intPair.getNumber2() == 1) {
-            numberBox = 5;
-        }
-        else  if (intPair.getNumber1() == 1 && intPair.getNumber2() == 2) {
-            numberBox = 6;
-        }
-        else  if (intPair.getNumber1() == 2 && intPair.getNumber2() == 0) {
-            numberBox = 7;
-        }
-        else  if (intPair.getNumber1() == 2 && intPair.getNumber2() == 1) {
-            numberBox = 8;
-        }
-        else {
-            numberBox = 9;
-        }
-
-        return numberBox;
     }
 
     /**
