@@ -4,6 +4,7 @@ import squid.character.NPC;
 import squid.exit.Exit;
 import squid.place.game.FindNumber;
 import squid.place.game.GlassBridge;
+import squid.place.game.GuessMyWord.GuessMyWord;
 import squid.place.game.MarblesGame;
 import squid.place.game.RockPapersScissors;
 import squid.place.game.TicTacToe.TicTacToe;
@@ -72,6 +73,7 @@ public class Place {
         genExit2Ways(hubExits, "MainRoom","FindNumber");
         genExit2Ways(hubExits,"MainRoom","TicTacToe");
         genExit2Ways(hubExits,"MainRoom","MarblesGame");
+        genExit2Ways(hubExits,"MainRoom","GuessMyWord");
 
         // Hub
 
@@ -83,6 +85,7 @@ public class Place {
         placeList.add(new GlassBridge());
         placeList.add(new TicTacToe());
         placeList.add(new MarblesGame());
+        placeList.add(new GuessMyWord());
         return placeList;
     }
 

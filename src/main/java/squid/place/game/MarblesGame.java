@@ -53,40 +53,39 @@ public class MarblesGame extends Game {
                         this.getNpc().dialog("Right answer! Good job :)");
                         playerMarbles += rdmValue;
                         npcMarbles -= rdmValue;
-                        this.getNpc().dialog("You have " + playerMarbles + " marbles, i have " + npcMarbles + " marbles.");
+                        this.getNpc().dialog("You have " + playerMarbles + " marbles, I have " + npcMarbles + " marbles.");
                     } else {
                         this.getNpc().dialog("Wrong answer! Better luck next time :/");
                         playerMarbles -= rdmValue;
                         npcMarbles += rdmValue;
-                        this.getNpc().dialog("You have " + playerMarbles + " marbles, i have " + npcMarbles + " marbles.");
+                        this.getNpc().dialog("You have " + playerMarbles + " marbles, I have " + npcMarbles + " marbles.");
                     }
                 } else {
                     if (usrAnswer.equals("yes")) {
                         this.getNpc().dialog("Wrong answer! Better luck next time :/");
                         playerMarbles -= rdmValue;
                         npcMarbles += rdmValue;
-                        this.getNpc().dialog("You have " + playerMarbles + " marbles, i have " + npcMarbles + " marbles.");
+                        this.getNpc().dialog("You have " + playerMarbles + " marbles, I have " + npcMarbles + " marbles.");
                     } else {
                         this.getNpc().dialog("Right answer! Good job :)");
                         playerMarbles += rdmValue;
                         npcMarbles -= rdmValue;
-                        this.getNpc().dialog("You have " + playerMarbles + " marbles, i have " + npcMarbles + " marbles.");
+                        this.getNpc().dialog("You have " + playerMarbles + " marbles, I have " + npcMarbles + " marbles.");
                     }
                 }
             }
         }
         if(npcMarbles <= 0){
-            this.getNpc().dialog("Good job gamer, you've won !");
+            winner();
         }
         else {
-            this.getNpc().dialog("You've lost, luck wasn't on your side champ..");
-            player.setIsLose();
+            lose(player);
         }
     }
 
-    public static int rdmValue() {
+    public int rdmValue() {
         Random rdmGenerator = new Random();
-        return (rdmGenerator.nextInt((MAX_RDM - MIN_RDM) + MIN_RDM));
+        return (rdmGenerator.nextInt(MAX_RDM - MIN_RDM)+ MIN_RDM);
     }
 
     public boolean checkYesNo(String x) {
