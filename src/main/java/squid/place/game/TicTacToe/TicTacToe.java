@@ -19,9 +19,7 @@ public class TicTacToe extends Game {
 
     @Override
     public void removePlayer() {
-        int nbPlayer = getNbPlayer();
-        Random nbAleatory = new Random();
-        nbPlayer = 25 + nbAleatory.nextInt(nbPlayer/2 - 25 + 1);
+        int nbPlayer = getNbPlayer() / 2;
         setNbPlayer(nbPlayer);
         System.out.println("Il reste maintenant " + nbPlayer + " players !");
     }
