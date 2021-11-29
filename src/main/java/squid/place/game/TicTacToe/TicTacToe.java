@@ -31,18 +31,20 @@ public class TicTacToe extends Game {
         Scanner scanner = new Scanner(System.in);
         boolean playerStart = playerStartFirst();
 
-        // Création du plateau de jeu
+        // Creation of the game board
         BoardGame boardGame = new BoardGame();
 
-        // Définition du symbole du joueur => "X" ou "O"
+        // Definition of player symbol => "X" or "O"
         Symbol symbolPlayer = new Symbol();
-        // On donne le symbole restant à l'ordinateur
+        // We give the remaining symbol to the computer
         Symbol symbolNPC = symbolNPC(symbolPlayer);
 
+        // Game grid numbering system display
         this.getNpc().dialog(this.printExplanationsGameGrid());
 
-        // Tant que le jeu n'est pas terminé
-        while (winPlay(boardGame, symbolPlayer, symbolNPC).getSymbol().equals("NULL") && numberPossibleMoves(boardGame) != 0) {
+        // As long as the game is not over
+        while (winPlay(boardGame).getSymbol().equals("NULL") && numberPossibleMoves(boardGame) != 0) {
+            // If it's up to the player to play
             if (playerStart) {
                 boolean playOK = false;
                 IntPair intPair = new IntPair(-1, -1);
@@ -69,20 +71,24 @@ public class TicTacToe extends Game {
                 playerStart = false;
 
             }
+            // If it is for the computer to play
             else {
                 IntPair intPair = findBestMove(boardGame, symbolNPC, symbolPlayer);
                 boardGame.getBoardGame()[intPair.getNumber1()][intPair.getNumber2()].setPlayer(symbolNPC);
                 playerStart = true;
             }
         }
-        if (winPlay(boardGame, symbolPlayer, symbolNPC).getSymbol().equals(symbolPlayer.getSymbol())) {
+        // If the player won
+        if (winPlay(boardGame).getSymbol().equals(symbolPlayer.getSymbol())) {
             this.removePlayer();
             winner();
         }
-        else if (winPlay(boardGame, symbolPlayer, symbolNPC).getSymbol().equals(symbolNPC.getSymbol())) {
+        // If the computer won
+        else if (winPlay(boardGame).getSymbol().equals(symbolNPC.getSymbol())) {
             boardGame.printBoardGame();
             lose(player);
         }
+        // Otherwise it's a draw
         else {
             System.out.println("Partie null.");
         }
@@ -94,7 +100,7 @@ public class TicTacToe extends Game {
      * @return print explanation on the numbering of the game grid
      */
     private String printExplanationsGameGrid() {
-        // Savoir si le retour chariot est /r ou /n (windows ou linux)
+        // Find out if the carriage return is /r or /n (windows or linux)
         String newLine = System.lineSeparator();
 
         return "Each square of the game grid is numbered such as :" + newLine
@@ -190,11 +196,9 @@ public class TicTacToe extends Game {
 
     /**
      * @param boardGame Tic Tac Toe game board
-     * @param symbolPlayer Player symbol
-     * @param symbolNPC NPC symbol
-     * @return
+     * @return The winner of the game or "NULL"
      */
-    private Symbol winPlay(BoardGame boardGame, Symbol symbolPlayer, Symbol symbolNPC) {
+    private Symbol winPlay(BoardGame boardGame) {
 
         // [X][X][X]     [ ][ ][ ]     [ ][ ][ ]
         // [ ][ ][ ]     [X][X][X]     [ ][ ][ ]
@@ -239,17 +243,16 @@ public class TicTacToe extends Game {
 
     /**
      * @param boardGame Tic Tac Toe game board
-     * @param symbolPlayer Player symbol
      * @param symbolNPC NPC symbol
      * @return Turns the current state of the game into a "point"
      */
-    private int winPlayToInt(BoardGame boardGame, Symbol symbolPlayer, Symbol symbolNPC) {
-        Symbol symbol = winPlay(boardGame, symbolPlayer, symbolNPC);
+    private int winPlayToInt(BoardGame boardGame, Symbol symbolNPC) {
+        Symbol symbol = winPlay(boardGame);
 
         if (symbol.getSymbol().equals("NULL")) {
             return 0;
         }
-        else if (symbol.getSymbol().equals(symbolPlayer.getSymbol())) {
+        else if (symbol.getSymbol().equals(symbolNPC.getSymbol())) {
             return 10;
         }
         else {
@@ -264,12 +267,12 @@ public class TicTacToe extends Game {
      * @param isMax Indicates whether we are looking for the player or the computer
      * @param symbolPlayer Player symbol
      * @param symbolNPC NPC symbol
-     * @return
+     * @return Score of the box
      */
     private int minimax(BoardGame boardGame, int depth, boolean isMax, Symbol symbolPlayer, Symbol symbolNPC) {
-        int score = winPlayToInt(boardGame, symbolNPC, symbolPlayer);
+        int score = winPlayToInt(boardGame, symbolNPC);
 
-        // If Maximizer has won the game return his/her evaluated score If Minimizer has won the game return his/her evaluated score
+        // If Maximizer has won the game return or if Minimizer has won => Return the game his evaluated score
         if (score == 10 || score == -10) {
             return score;
         }
@@ -283,16 +286,16 @@ public class TicTacToe extends Game {
         if (isMax) {
             int bestScore = -1000;
 
-            // Traverse all cells
+            // Traverse all boxs
             for (int ligne = 0; ligne < 3; ligne++) {
                 for (int colonne = 0; colonne < 3; colonne++) {
-                    // Check if cell is empty
+                    // Check if box is empty
                     if (boardGame.getBoardGame()[ligne][colonne].getPlayer().getSymbol().equals("NULL")) {
                         // Make the move
                         boardGame.getBoardGame()[ligne][colonne].setPlayer(symbolNPC);
 
                         // Call minimax recursively and choose the maximum value
-                        bestScore = Math.max(bestScore, minimax(boardGame, depth + 1, !isMax, symbolPlayer, symbolNPC));
+                        bestScore = Math.max(bestScore, minimax(boardGame, depth + 1, false, symbolPlayer, symbolNPC));
 
                         // Undo the move
                         boardGame.getBoardGame()[ligne][colonne].setPlayer(new Symbol("NULL"));
@@ -304,14 +307,14 @@ public class TicTacToe extends Game {
         else {
             int best = 1000;
 
-            // Traverse all cells
+            // It is the same algorithm as the previous one, but this time we recursively call the minimum value
             for (int ligne = 0 ; ligne < 3 ; ligne++) {
                 for (int colonne = 0 ; colonne < 3 ; colonne++) {
                     if (boardGame.getBoardGame()[ligne][colonne].getPlayer().getSymbol().equals("NULL")) {
 
                         boardGame.getBoardGame()[ligne][colonne].setPlayer(symbolPlayer);
 
-                        best = Math.min(best, minimax(boardGame, depth + 1, !isMax, symbolPlayer, symbolNPC));
+                        best = Math.min(best, minimax(boardGame, depth + 1, true, symbolPlayer, symbolNPC));
 
                         boardGame.getBoardGame()[ligne][colonne].setPlayer(new Symbol("NULL"));
                     }
@@ -340,7 +343,7 @@ public class TicTacToe extends Game {
 
                     int moveVal = minimax(boardGame, 0, false, symbolPlayer, symbolNPC);
 
-                    // Anule le coup
+                    // Undo the move
                     boardGame.getBoardGame()[ligne][colonne].setPlayer(new Symbol("NULL"));
 
                     if (moveVal > bestScore) {
