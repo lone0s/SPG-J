@@ -67,15 +67,15 @@ public class Place {
 
         // Exits Hub
 
-        genExit2Ways(hubExits,"Main Room","Rock, Papers, Scissors");
-        genExit2Ways(hubExits,"Main Room","Glass Bridge");
-        genExit2Ways(hubExits, "Main Room","Find Number");
-        genExit2Ways(hubExits,"Main Room","TicTacToe");
-        genExit2Ways(hubExits,"Main Room","Marbles Game");
+        genExit2Ways(hubExits,"MainRoom","RockPaperScissors");
+        genExit2Ways(hubExits,"MainRoom","GlassBridge");
+        genExit2Ways(hubExits, "MainRoom","FindNumber");
+        genExit2Ways(hubExits,"MainRoom","TicTacToe");
+        genExit2Ways(hubExits,"MainRoom","MarblesGame");
 
         // Hub
 
-        placeList.add(new Place("Main Room",
+        placeList.add(new Place("MainRoom",
                 "[*] This is the principal place of the game",
                 mainnpc, hubExits));
         placeList.add(new FindNumber());
@@ -95,7 +95,9 @@ public class Place {
         }
         return map.get(indice);
     }
-
+    public static boolean placeExists (String placeName, HashMap<String,Exit> exits) {
+        return (exits.containsKey(placeName));
+    }
 
     public HashMap<String,Exit> getExits(){
         return this.exits;

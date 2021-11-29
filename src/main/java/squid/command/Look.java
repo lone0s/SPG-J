@@ -8,7 +8,7 @@ public class Look extends Command{
 
     public Look() {
         super("look",
-                "[*] look : Use this command for read the description of an objet or a place !");
+                "[*] look : Use this command to read the description of an objet or a place !");
     }
 
     @Override

@@ -12,8 +12,8 @@ import java.util.Scanner;
 public class GlassBridge extends Game {
 
     public GlassBridge() {
-        super("Glass Bridge", "The object of the game is to cross the bridge without falling on fragile glass.",
-                new NPC("GB_NPC"), genExit2Ways(new HashMap<String,Exit>(),"Glass Bridge","Main Room"));
+        super("GlassBridge", "The object of the game is to cross the bridge without falling on fragile glass.",
+                new NPC("GB_NPC"), genExit2Ways(new HashMap<String,Exit>(),"GlassBridge","MainRoom"));
     }
 
     @Override

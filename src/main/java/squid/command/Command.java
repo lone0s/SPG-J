@@ -37,6 +37,7 @@ public abstract class Command {
         commandList.add(new Play());
         commandList.add(new Help());
         commandList.add(new Look());
+        commandList.add(new Go());
 
         return commandList;
     }

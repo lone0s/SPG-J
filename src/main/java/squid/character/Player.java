@@ -85,8 +85,12 @@ public class Player extends Character{
     }
 
     public void useExit(String mapDest) {
-        if ((this.cur_place.getExits().containsKey(mapDest)) /*&& (!mapDest.equals(this.cur_place.getName()))*/) {
+        if (!(this.cur_place.getName().equals(mapDest)) &&(this.cur_place.getExits().containsKey(mapDest))) {
+            System.out.println("[*] You were in the " + this.cur_place.getName() + " map" );
             this.cur_place = Place.findPlace(mapDest,this.world);
+            System.out.println("[*] You are now in the " + this.cur_place.getName() + " map");
         }
+        else
+            System.out.println("[*] You are already on this map");
     }
 }

@@ -19,11 +19,11 @@ public class MarblesGame extends Game {
 
 
     public MarblesGame() {
-        super("Marbles Game",
+        super("MarblesGame",
                 "You and the NPC have 10 marbles.\nEach round, the NPC picks a number between 1 and 10." +
                         "\nYou'll have to guess weither the picked number is even or not.\nFirst one to get to 0 marbles loses." +
-                        "\nGood Luck."
-                ,new NPC("Marble Master"), genExit2Ways(new HashMap<String, Exit>(),"Marbles Game","Hub"));
+                        "\nGood luck gamer."
+                ,new NPC("Marble Master"), genExit2Ways(new HashMap<String, Exit>(),"MarblesGame","MainRoom"));
     }
 
     public void removePlayer(){}

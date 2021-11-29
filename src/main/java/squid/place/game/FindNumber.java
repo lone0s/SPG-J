@@ -17,9 +17,9 @@ public class FindNumber extends Game {
     private final static int MAX_ATTEMPT = 12;
 
     public FindNumber(){
-        super("Find Number",
+        super("FindNumber",
                 " In this game you have to find a number thought by the man",
-                new NPC("Square Guard"),genExit2Ways(new HashMap<String,Exit>(),"Find Number","Main Room"));
+                new NPC("Square Guard"),genExit2Ways(new HashMap<String,Exit>(),"FindNumber","MainRoom"));
     }
 
     @Override
