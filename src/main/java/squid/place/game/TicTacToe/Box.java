@@ -2,19 +2,12 @@ package squid.place.game.TicTacToe;
 
 public class Box {
     /**
-     * Contient le nom du joueur ou NPC si présent, sinon contient la chapine de caractère "null"
+     * Contient le nom du joueur ou NPC si présent, sinon contient la chapine de caractère "NULL"
      */
     private Symbol player;
 
     Box() {
         this.player = new Symbol("NULL");
-    }
-
-    /**
-     * @return Un joueur est présent ou non
-     */
-    public boolean isEmpty() {
-        return this.player.getSymbol().equals("NULL");
     }
 
     /**
