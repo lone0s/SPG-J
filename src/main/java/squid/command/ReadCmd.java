@@ -1,9 +1,9 @@
 package squid.command;
 
 import squid.character.Player;
+import squid.place.Place;
 
 public abstract class ReadCmd {
-
     // To interpret a command
     public static void interpretCommand(Player player, String command) {
         Command cmd = getCommand(command);

@@ -1,12 +1,13 @@
 package squid.command;
 
 import squid.character.Player;
+import squid.place.Place;
 
 import java.util.ArrayList;
 import java.util.List;
 
 public abstract class Command {
-
+    Place place;
     public static final List<Command> commandList = generateCommands();
 
     private final String command;
@@ -38,5 +39,9 @@ public abstract class Command {
         commandList.add(new Look());
 
         return commandList;
+    }
+
+    public void setPlace(Place place) {
+        this.place = place;
     }
 }
