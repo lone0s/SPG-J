@@ -64,7 +64,6 @@ public class Place {
         List<Place> placeList = new ArrayList<>();
         NPC mainnpc = new NPC("Triangle Guard");
         HashMap<String,Exit> hubExits = new HashMap<>();
-        HashMap<String,Exit> fdNbr = new HashMap<>();
 
         // Exits Hub
 

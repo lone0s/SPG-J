@@ -13,7 +13,7 @@ public class TicTacToe extends Game {
     public TicTacToe() {
         super("TicTacToe", "Description du jeu",
                 new NPC("GB_NPC"),
-                genExit2Ways(new HashMap<String,Exit>(),"TicTacToe","MainRoom"))
+                genExit2Ways(new HashMap<>(),"TicTacToe","MainRoom"))
         ;
     }
 

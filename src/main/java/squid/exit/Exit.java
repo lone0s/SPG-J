@@ -1,6 +1,14 @@
 package squid.exit;
 
 
+import squid.character.Player;
+import squid.place.Place;
+
+import java.util.ArrayList;
+import java.util.HashMap;
+import java.util.List;
+import java.util.Set;
+
 public class Exit {
     /**
      * Nom de la pièce contenant la sortie
@@ -29,5 +37,12 @@ public class Exit {
         //if(!this.Destination.equals(this.Source)) {
             return ("[" + this.Source + "] --> [" + this.Destination + "]");
         //}
+    }
+
+    public static void printAllowedExits (HashMap<String,Exit> exits, Place playerLoc) {
+        Set<String> myKeys = exits.keySet();
+        int cpt = 0;
+        myKeys.remove(playerLoc.getName());
+        System.out.println(myKeys);
     }
 }

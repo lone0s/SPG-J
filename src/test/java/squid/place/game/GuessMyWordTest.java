@@ -6,28 +6,30 @@ import squid.character.NPC;
 import squid.character.Player;
 import squid.exit.Exit;
 import squid.place.Place;
+import squid.place.game.GuessMyWord.GuessMyWord;
 
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
 
-public class MarblesTest {
-    private MarblesGame marblesGame;
+public class GuessMyWordTest {
+    private GuessMyWord guessMyWordgame;
     private Player player;
     private Place place;
     private List<Place> world;
+
 
     @Before
     public void setUp() {
         world = new ArrayList<>();
         place = new Place("Mj1", "Random desc", new NPC("Thierry"),Place.genExit2Ways(new HashMap<String, Exit>(),"Mj1","Hub"));
         world.add(place);
-        marblesGame = new MarblesGame();
+        guessMyWordgame = new GuessMyWord();
         player = new Player("okMek", place, world );
     }
 
     @Test
     public void playTest() {
-        marblesGame.play(player);
+        guessMyWordgame.play(player);
     }
 }

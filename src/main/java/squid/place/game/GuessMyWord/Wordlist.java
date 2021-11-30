@@ -36,6 +36,29 @@ public class Wordlist {
         return this.Words.get(rdmVal);
     }
 
+    public static ArrayList<String> genKeyWords() {
+        ArrayList<String> myKeywords = new ArrayList<>();
+        myKeywords.add("Animals");
+        myKeywords.add("Games");
+        myKeywords.add("Objects");
+        myKeywords.add("Presidents");
+        myKeywords.add("Artists");
+        return myKeywords;
+    }
+    /*
+     * uniqueRdms() : Permet de générer une liste de nombres aléatoires
+     *                tout en évitant d'obtenir deux fois le même nombre.
+     *                Cela nous évitera de générer deux fois la même liste.
+     */
+    public static ArrayList<Integer> uniqueRdms() {
+        Random rdm = new Random() ;
+        Set<Integer> rdmValues = new LinkedHashSet<Integer>(); //Permet d'éliminer la redondance des valeurs aléatoires
+        while (rdmValues.size() < NB_CHANCES){
+            rdmValues.add(rdm.nextInt(NB_WORDLISTS));
+        }
+        return new ArrayList<>(rdmValues);
+    }
+
     public static Wordlist genAnimalList() {
         List<String>myAnimals = new ArrayList<>();
         myAnimals.add("Dog");
@@ -107,22 +130,5 @@ public class Wordlist {
         }
         return myWords;
     }
-    public static ArrayList<String> genKeyWords() {
-        ArrayList<String> myKeywords = new ArrayList<>();
-        myKeywords.add("Animals");
-        myKeywords.add("Games");
-        myKeywords.add("Objects");
-        myKeywords.add("Presidents");
-        myKeywords.add("Artists");
-        return myKeywords;
-    }
 
-    public static ArrayList<Integer> uniqueRdms() {
-        Random rdm = new Random() ;
-        Set<Integer> rdmValues = new LinkedHashSet<Integer>(); //Permet d'éliminer la redondance des valeurs aléatoires
-        while (rdmValues.size() < NB_CHANCES){
-            rdmValues.add(rdm.nextInt(NB_WORDLISTS));
-        }
-        return new ArrayList<>(rdmValues);
-    }
 }
