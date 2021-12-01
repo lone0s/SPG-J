@@ -40,7 +40,7 @@ public class Mag extends Item {
     public void use(Player player) {
         if (this.getNbAmmo() == -1) {
             this.setRandomAmmo();
-            System.out.println("The mag has " + this.getNbAmmo() + " bullets.");
+            System.out.println("[*] The mag has " + this.getNbAmmo() + " bullets.");
         }
         else {
             System.out.println("[*] The mag was already charged. He has " + this.getNbAmmo() + " bullets.");
