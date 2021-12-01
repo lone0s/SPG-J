@@ -26,7 +26,12 @@ public class MarblesGame extends Game {
                 ,new NPC("Marble Master"), genExit2Ways(new HashMap<>(),"MarblesGame","MainRoom"));
     }
 
-    public void removePlayer(){}
+    @Override
+    public void removePlayer() {
+        int nPlayers = getNbPlayer() / 2;
+        setNbPlayer(nPlayers);
+        System.out.println("There's " + nPlayers + " players left!");
+    }
 
     public void play(Player player) {
 

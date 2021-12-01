@@ -20,8 +20,11 @@ public class GuessMyWord extends Game {
 
     @Override
     public void removePlayer() {
-
+        int nPlayers = getNbPlayer() / 2;
+        setNbPlayer(nPlayers);
+        System.out.println("There's " + nPlayers + " players left!");
     }
+
     public void play(Player player) {
         Scanner usrInput = Start.scanner;
         Random rdm = new Random();
