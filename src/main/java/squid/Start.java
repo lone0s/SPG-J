@@ -19,7 +19,13 @@ public class Start {
 
         String command;
         List<Place> placeList = Place.genAllPlaces();
-
+        /*System.out.println("    ________________________ \n" +
+                "   |  ____________________  |\n" +
+                "   | |                    | |\n"+
+                "   | | Squid Plagiat Game | |\n" +
+                "   | |                    | |\n"+
+                "   | |____________________| |\n" +
+                "   |________________________|\n");*/
         System.out.println("[*] Please enter your username !");
 
         String username = scanner.nextLine();
@@ -27,7 +33,7 @@ public class Start {
         Player player = new Player(username, placeList.get(0),placeList);
         player.addItem(new Knife());
 
-        player.getPlace().getNpc().dialog("Welcome to the squid game plagiat game");
+        player.getPlace().getNpc().dialog("Welcome to the squid game plagiat game\n");
         player.getPlace().getNpc().dialog("You are in the " + player.getPlace().getName());
         player.getPlace().getNpc().dialog("You can go here ");
         Exit.printAllowedExits(player.getPlace().getExits(), player.getPlace());

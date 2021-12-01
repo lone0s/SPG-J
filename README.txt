@@ -8,18 +8,18 @@ Java link
 
 Java SE link 
 
-- Open a command terminal into the game directory
+- Open a command terminal in the game directory.
 
-- Run the command " java -jar spg.jar "
+- Run the command " java -jar spg.jar ".
 
-- Have fun
+- Have fun.
 
  --- To play ---
 
-- The game is entirely onc command line
+- The game works only with command lines.
 
-- Chose a username
+- First, you'll have to choose a username.
 
-- Type "help" for display available command
+- Type "help" to display available commands.
 
 - The goal of the game is to finish the 6 mini-games and be the last man standing.
