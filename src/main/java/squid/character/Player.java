@@ -61,7 +61,6 @@ public class Player extends Character{
     }
 
     public void printInventory(){
-
         if(this.items.isEmpty()) {
             System.out.println("[*] Your inventory is empty, complete mini-games to get more items!");
         } else {
