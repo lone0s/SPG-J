@@ -14,7 +14,7 @@ public class Use extends Command{
 
     @Override
     public void executeCommand(Player player, String[] args) {
-        if (args[1].equalsIgnoreCase("Kniffe")) {
+        if (args[1].equalsIgnoreCase("Knife")) {
             Knife knife = new Knife();
             knife.use(player);
         }
