@@ -2,7 +2,6 @@ package squid.place.game.TicTacToe;
 
 import squid.character.NPC;
 import squid.character.Player;
-import squid.exit.Exit;
 import squid.place.Game;
 
 import java.util.HashMap;

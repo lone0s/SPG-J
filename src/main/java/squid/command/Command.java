@@ -7,7 +7,6 @@ import java.util.ArrayList;
 import java.util.List;
 
 public abstract class Command {
-    Place place;
     public static final List<Command> commandList = generateCommands();
 
     private final String command;
@@ -38,11 +37,8 @@ public abstract class Command {
         commandList.add(new Help());
         commandList.add(new Look());
         commandList.add(new Go());
+        commandList.add(new Use());
 
         return commandList;
-    }
-
-    public void setPlace(Place place) {
-        this.place = place;
     }
 }
