@@ -43,7 +43,7 @@ public class Knife extends Item {
         player.removeItem(this);
         setRandomKill(place);
         place.setNbPlayer(place.getNbPlayer() - NbKill);
-        System.out.println("[*] You just killed " + getRandomKill() + " peaple.");
+        System.out.println("[*] You just " + getRandomKill() + " peaple.");
     }
 
 }
