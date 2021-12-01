@@ -33,9 +33,17 @@ public class Mag extends Item {
         return this.nbAmmo;
     }
 
+    /**
+     * @param player player of the game
+     */
     @Override
     public void use(Player player) {
-        this.setRandomAmmo();
-        System.out.println("The mag has " + this.getNbAmmo() + " bullets.");
+        if (this.getNbAmmo() == -1) {
+            this.setRandomAmmo();
+            System.out.println("The mag has " + this.getNbAmmo() + " bullets.");
+        }
+        else {
+            System.out.println("[*] The mag was already charged. He has " + this.getNbAmmo() + " bullets.");
+        }
     }
 }
