@@ -12,31 +12,38 @@ public class Knife extends Item {
     private static final int MAX_KILL = 5;
 
     /**
-     * Ce constructeur créer un couteaux avec une explication pour l'utiliser.
+     * This builder create a knives with an explanation.
      */
     public Knife() {
         super("Couteaux", "Ce couteaux peut être utiliser pour tuer un nombre aléatoire de personnes.");
     }
 
     /**
-     * Est appelée lors de la création du couteaux => Indique combien de personne sont tuées par le couteaux
+     * Is called when the knife is created => Indicates how many people are killed by the knife
      */
     public void setRandomKill(Place place) {
         Random nbAleatory = new Random();
         NbKill = MIN_KILL + nbAleatory.nextInt(MAX_KILL - MIN_KILL + 1);
-        place.setNbPlayer(place.getNbPlayer() - NbKill);
     }
 
     /**
-     * @return Nombre de personne tuées lors de l'utilisation du couteaux
+     * @return Number of people killed while using the knife
      */
     public int getRandomKill() {
         return this.NbKill;
     }
 
+    /**
+     * @param player player of the game
+     */
     @Override
     public void use(Player player) {
+        Place place = player.getPlace();
+
         player.removeItem(this);
+        setRandomKill(place);
+        place.setNbPlayer(place.getNbPlayer() - NbKill);
+        System.out.println("[*] You just killed " + getRandomKill() + " peaple.");
     }
 
 }
