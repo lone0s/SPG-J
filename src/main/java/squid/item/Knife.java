@@ -19,12 +19,11 @@ public class Knife extends Item {
     }
 
     /**
-     * Est appelée lors de la création du couteaux => Indique combien de personne sont tuées par le couteaux
+     * Is called when the knife is created => Indicates how many people are killed by the knife
      */
     public void setRandomKill(Place place) {
         Random nbAleatory = new Random();
         NbKill = MIN_KILL + nbAleatory.nextInt(MAX_KILL - MIN_KILL + 1);
-        place.setNbPlayer(place.getNbPlayer() - NbKill);
     }
 
     /**
@@ -36,7 +35,12 @@ public class Knife extends Item {
 
     @Override
     public void use(Player player) {
+        Place place = player.getPlace();
+
         player.removeItem(this);
+        setRandomKill(place);
+        place.setNbPlayer(place.getNbPlayer() - NbKill);
+        System.out.println("[*] You just killed " + getRandomKill() + " peaple.");
     }
 
 }

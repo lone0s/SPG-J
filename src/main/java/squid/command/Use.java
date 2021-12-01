@@ -14,7 +14,7 @@ public class Use extends Command{
     public void executeCommand(Player player, String[] args) {
         if (args[1].equalsIgnoreCase("Kniffe")) {
             Knife knife = new Knife();
-            knife.setRandomKill(player.getPlace());
+            knife.use(player);
         }
     }
 }

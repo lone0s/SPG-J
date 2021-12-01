@@ -1,6 +1,7 @@
 package squid.item;
 
 import squid.character.Player;
+import squid.place.Place;
 
 import java.util.Random;
 

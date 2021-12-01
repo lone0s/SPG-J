@@ -3,6 +3,7 @@ package squid.item;
 import squid.character.Player;
 import org.junit.Before;
 import org.junit.Test;
+import squid.place.Place;
 
 public class ItemTest {
 
