@@ -44,6 +44,7 @@ public class MarblesGame extends Game {
         System.out.println("\n--- Game launched ---\n");
 
         while (!someoneWon(playerMarbles, npcMarbles)) {
+            this.getNpc().dialog("You have " + playerMarbles + " marbles, I have " + npcMarbles + " marbles.");
             rdmValue = rdmValue();
             this.getNpc().dialog("I have picked a random value, is it even ?[yes/no]");
             usrAnswer = usrData.nextLine();
@@ -58,24 +59,21 @@ public class MarblesGame extends Game {
                         this.getNpc().dialog("Right answer! Good job :)");
                         playerMarbles += rdmValue;
                         npcMarbles -= rdmValue;
-                        this.getNpc().dialog("You have " + playerMarbles + " marbles, I have " + npcMarbles + " marbles.");
                     } else {
                         this.getNpc().dialog("Wrong answer! Better luck next time :/");
                         playerMarbles -= rdmValue;
                         npcMarbles += rdmValue;
-                        this.getNpc().dialog("You have " + playerMarbles + " marbles, I have " + npcMarbles + " marbles.");
                     }
-                } else {
+                }
+                else {
                     if (usrAnswer.equals("yes")) {
                         this.getNpc().dialog("Wrong answer! Better luck next time :/");
                         playerMarbles -= rdmValue;
                         npcMarbles += rdmValue;
-                        this.getNpc().dialog("You have " + playerMarbles + " marbles, I have " + npcMarbles + " marbles.");
                     } else {
                         this.getNpc().dialog("Right answer! Good job :)");
                         playerMarbles += rdmValue;
                         npcMarbles -= rdmValue;
-                        this.getNpc().dialog("You have " + playerMarbles + " marbles, I have " + npcMarbles + " marbles.");
                     }
                 }
             }
