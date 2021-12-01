@@ -2,9 +2,6 @@ package squid;
 
 import squid.character.Player;
 import squid.command.ReadCmd;
-import squid.exit.Exit;
-import squid.item.Item;
-import squid.item.Knife;
 import squid.place.Place;
 
 import java.util.List;
@@ -31,12 +28,9 @@ public class Start {
         String username = scanner.nextLine();
 
         Player player = new Player(username, placeList.get(0),placeList);
-        player.addItem(new Knife());
 
         player.getPlace().getNpc().dialog("Welcome to the squid game plagiat game\n");
-        player.getPlace().getNpc().dialog("You are in the " + player.getPlace().getName());
-        player.getPlace().getNpc().dialog("You can go here ");
-        Exit.printAllowedExits(player.getPlace().getExits(), player.getPlace());
+
         while (!player.getIsLose()) {
             System.out.print(player);
             command = scanner.nextLine();

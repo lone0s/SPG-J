@@ -3,7 +3,6 @@ package squid.command;
 import squid.character.Player;
 
 import java.util.List;
-import java.util.Locale;
 
 public class Help extends Command{
 
