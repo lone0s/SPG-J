@@ -3,6 +3,7 @@ package squid.item;
 import squid.character.Player;
 import squid.place.Place;
 
+import java.util.List;
 import java.util.Random;
 
 public class Knife extends Item {
@@ -15,7 +16,7 @@ public class Knife extends Item {
      * This builder create a knives with an explanation.
      */
     public Knife() {
-        super("Couteaux", "Ce couteaux peut être utiliser pour tuer un nombre aléatoire de personnes.");
+        super("Knife", "Ce couteaux peut être utiliser pour tuer un nombre aléatoire de personnes.");
     }
 
     /**
@@ -40,10 +41,17 @@ public class Knife extends Item {
     public void use(Player player) {
         Place place = player.getPlace();
 
-        player.removeItem(this);
         setRandomKill(place);
         place.setNbPlayer(place.getNbPlayer() - NbKill);
         System.out.println("[*] You just " + getRandomKill() + " people.");
+
+        List<Item> items = player.getItems();
+        for (int compteur = 0 ; compteur < items.size() ; compteur++) {
+            if (items.get(compteur).getName().equalsIgnoreCase("Knife")) {
+                player.removeItem(items.get(compteur));
+                break;
+            }
+        }
     }
 
 }
