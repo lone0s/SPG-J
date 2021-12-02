@@ -33,7 +33,16 @@ public class Start {
 
         Player player = new Player(username, placeList.get(0),placeList);
 
-        player.getPlace().getNpc().dialog("Welcome to the squid game plagiat game\n");
+        System.out.println("Welcome " + player.getName() + " to the Squid Plagiat Game.\n" +
+                "You have been drugged and you wake up in a large room with several hundred players.\n" +
+                "A scoreboard shows the number 456.\n" +
+                "You are probably wondering what you are doing here.");
+
+        player.getPlace().getNpc().dialog("Hello everyone,\n" +
+                "you have chosen to participate in the Squid Game Plagiarism.\n" +
+                " During the game, you will have to participate in different mini-games.\n" +
+                " The goal is simple => win the game in order not to die.\n" +
+                "Please indicate now what you want to do.");
 
         while (!player.getIsLose()) {
             System.out.print(player);
