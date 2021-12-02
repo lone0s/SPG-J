@@ -4,7 +4,7 @@ import squid.character.Player;
 import squid.place.Place;
 
 import java.util.List;
-
+zfjhvfz
 public class Gun extends Item {
     private final static String name = "Pistolet";
     private final static String description = "Pour utiliser ce pistolet, il faut posséder un chargeur.";
