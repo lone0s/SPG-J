@@ -1,13 +1,10 @@
 package squid.exit;
 
 
-import squid.character.Player;
 import squid.place.Place;
-
-import java.util.ArrayList;
 import java.util.HashMap;
-import java.util.List;
 import java.util.Set;
+
 
 public class Exit {
     /**
