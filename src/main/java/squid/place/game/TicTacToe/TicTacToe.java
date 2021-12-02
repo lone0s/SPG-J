@@ -13,7 +13,7 @@ import java.util.Scanner;
 public class TicTacToe extends Game {
     public TicTacToe() {
         super("TicTacToe", "Description du jeu",
-                new NPC("GB_NPC",new Gun()),
+                new NPC("Circle Guard",new Gun()),
                 genExit2Ways(new HashMap<>(),"TicTacToe","MainRoom"))
         ;
     }
@@ -22,7 +22,7 @@ public class TicTacToe extends Game {
     public void removePlayer() {
         int nbPlayer = getNbPlayer() / 2;
         setNbPlayer(nbPlayer);
-        System.out.println("Il reste maintenant " + nbPlayer + " players !");
+        System.out.println("There are now " + nbPlayer + " players left !");
     }
 
     @Override

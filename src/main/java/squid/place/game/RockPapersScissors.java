@@ -37,7 +37,7 @@ public class RockPapersScissors extends Game {
     public void removePlayer() {
         int nbPlayer = getNbPlayer() / 2;
         setNbPlayer(nbPlayer);
-        System.out.println("Il reste maintenant " + nbPlayer + " players !");
+        System.out.println("There are now " + nbPlayer + " players left !");
     }
 
     @Override

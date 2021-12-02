@@ -19,7 +19,6 @@ public class NPC extends Character {
     }
 
     // Methode pour vérifier si le NPC a un item
-
     public boolean hasItem() {
         return (!this.item.getName().equals("Empty"));
     }

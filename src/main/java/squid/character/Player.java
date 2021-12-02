@@ -26,15 +26,15 @@ public class Player extends Character{
         this.items = new ArrayList<>();
         this.world = World;
     }
-
+    //Récupère la place du joueur
     public Place getPlace(){
         return this.cur_place;
     }
-
+    //Regarde si le joueur à perdu
     public boolean getIsLose(){
         return this.isLose;
     }
-
+    //Change le status de isLose
     public void setIsLose(){
         this.isLose = true;
     }
@@ -61,11 +61,11 @@ public class Player extends Character{
                 item.getName().toLowerCase() +
                 " has been removed from your inventory");
     }
-
+    //Récupère un item de l'inventaire du joueur
     public List<Item> getItems() {
         return this.items;
     }
-
+    //Fonction d'affichage de l'inventaire
     public void printInventory(){
         if(this.items.isEmpty()) {
             System.out.println("[*] Your inventory is empty, complete mini-games to get more items!");
