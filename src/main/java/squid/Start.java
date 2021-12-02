@@ -27,7 +27,7 @@ public class Start {
                 """);
 
 
-        System.out.println("[*] Please enter your username !");
+        System.out.print("[*] Please enter your username :");
 
         String username = scanner.nextLine();
 
@@ -36,13 +36,13 @@ public class Start {
         System.out.println("Welcome " + player.getName() + " to the Squid Plagiat Game.\n" +
                 "You have been drugged and you wake up in a large room with several hundred players.\n" +
                 "A scoreboard shows the number 456.\n" +
-                "You are probably wondering what you are doing here.");
+                "You are probably wondering what you are doing here.\n");
 
         player.getPlace().getNpc().dialog("Hello everyone,\n" +
                 "you have chosen to participate in the Squid Game Plagiarism.\n" +
                 " During the game, you will have to participate in different mini-games.\n" +
                 " The goal is simple => win the game in order not to die.\n" +
-                "Please indicate now what you want to do.");
+                "Please indicate now what you want to do.\n");
 
         while (!player.getIsLose()) {
             System.out.print(player);
