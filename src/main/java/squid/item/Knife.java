@@ -43,7 +43,7 @@ public class Knife extends Item {
 
         setRandomKill(place);
         place.setNbPlayer(place.getNbPlayer() - NbKill);
-        System.out.println("[*] You just " + getRandomKill() + " people.");
+        System.out.println("[*] You just killed " + getRandomKill() + " people.");
 
         List<Item> items = player.getItems();
         for (int compteur = 0 ; compteur < items.size() ; compteur++) {
