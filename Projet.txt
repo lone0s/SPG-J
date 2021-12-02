@@ -1,0 +1,44 @@
+
+ Un joueur : - 1 vie
+	     - un nom
+	     - liste d'squid.item
+
+ Le but être le dernier survivant !
+
+  
+	     
+
+ 1 salle principale : - Nombres de joueur
+		      - Le joueur peut utiliser des items uniquement ici !
+		      - Après chaque jeu, il retourne dans cette salle.
+
+
+ 6 épreuves : - Morpion 
+	      - Pierre/Feuille/Ciseaux en 3 manches gagnante
+	      - Juste Prix
+ 	      - Chemin de verre (Tableau 2 dimension de 7*2, une case a chaque niveau est perdante,
+il faut aller jsuqu'au but)
+		[*][]
+		[][*]
+		[][*]
+		[*][]
+		[*][]
+		[][*]
+	     - Les billes ( 1v1 10 billes chacun, le NPC prend un nombre aléatoire en entre 1 et 10 
+et le joueur doit deviner si c'est pair ou impair, si je joueur gagne, il gagne le nombre de billes
+randomiser par le bot sinon il perd ce nombre. Le premier arrivé à 0 à perdu.)
+	     - Nombre aléatoire (Boucle for sur le nombre de player qui génère une moyenne, Le joueur
+choisi un nombre aléatoire entre 1 et le nb de joueur, si le nombre est compris entre moyenne-1<nb<moyenne+1
+il à gagné la partie.)  
+
+	      - morpion divise par 2 le nb de joueurs 228
+	      - Pierre PApier Ciseaux divise par 2 nb de player 114 
+	      - Juste prix retire un NB aléatoire entre 25 et NB_PLAYER_MAX/2 89-57
+	      - Billes Divise par 2 44 - 28
+	      - Chemin de verre NB aléatoire entre 29 - 8
+		
+
+ ITEM : - Couteau  ( à l'utilisation tue entre 3/8 )
+	- Des chargeurs ( 1 chargeur = 50 munitions )
+	- une Sulfateuse (  tue entre 15 et 50 player, il faut d'accord charger l'arme avec un chargeur)
+
