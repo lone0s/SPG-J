@@ -16,13 +16,15 @@ public class Start {
 
         String command;
         List<Place> placeList = Place.genAllPlaces();
-        System.out.println("    ________________________ \n" +
-                "   |  ____________________  |\n" +
-                "   | |                    | |\n"+
-                "   | | Squid Plagiat Game | |\n" +
-                "   | |                    | |\n"+
-                "   | |____________________| |\n" +
-                "   |________________________|\n");
+        System.out.println("""
+                    ________________________\s
+                   |  ____________________  |
+                   | |                    | |
+                   | | Squid Plagiat Game | |
+                   | |                    | |
+                   | |____________________| |
+                   |________________________|
+                """);
 
 
         System.out.println("[*] Please enter your username !");
