@@ -69,7 +69,7 @@ public class Use extends Command{
             }
         }
         else {
-            System.out.println("Vous n'êtes pas dans le hub.");
+            System.out.println("You are not in the hub.");
         }
 
     }
