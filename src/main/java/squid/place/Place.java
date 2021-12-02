@@ -63,7 +63,7 @@ public class Place {
     public static List<Place> genAllPlaces(){
 
         List<Place> placeList = new ArrayList<>();
-        NPC mainnpc = new NPC("Triangle Guard",new Empty());
+        NPC mainnpc = new NPC("Game Master",new Empty());
         HashMap<String,Exit> hubExits = new HashMap<>();
 
         // Exits Hub
