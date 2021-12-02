@@ -11,7 +11,7 @@ import java.util.List;
 public class Use extends Command{
 
     Use() {
-        super("use", "Comment utiliser une arme ?");
+        super("use", " This command allows you to use an item");
     }
 
     @Override
