@@ -21,7 +21,7 @@ public class NPC extends Character {
     // Methode pour vérifier si le NPC a un item
 
     public boolean hasItem() {
-        return (!this.item.getName().equals("No Item"));
+        return (!this.item.getName().equals("Empty"));
     }
     public static boolean hasItem(Player player) {
         return (!player.getPlace().getNpc().getItem().getName().equals("Empty"));

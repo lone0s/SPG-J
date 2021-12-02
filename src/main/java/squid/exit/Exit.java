@@ -34,14 +34,11 @@ public class Exit {
 
     @Override
     public String toString() {
-        //if(!this.Destination.equals(this.Source)) {
             return ("[" + this.Source + "] --> [" + this.Destination + "]");
-        //}
     }
 
     public static void printAllowedExits (HashMap<String,Exit> exits, Place playerLoc) {
         Set<String> myKeys = exits.keySet();
-        int cpt = 0;
         myKeys.remove(playerLoc.getName());
         System.out.println(myKeys);
     }

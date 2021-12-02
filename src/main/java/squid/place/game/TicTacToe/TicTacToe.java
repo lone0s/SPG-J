@@ -81,7 +81,9 @@ public class TicTacToe extends Game {
         if (winPlay(boardGame).getSymbol().equals(symbolPlayer.getSymbol())) {
             this.removePlayer();
             winner();
-            this.getNpc().dialog("[*] Before you go, take this " + this.getNpc().getItem() + " with you. \n[<help take> if you don't know how to take an item]");
+            if (this.getNpc().hasItem()) {
+                this.getNpc().dialog("[*] Before you go, take this " + this.getNpc().getItem().getName() + " with you. \n[<help take> if you don't know how to take an item]");
+            }
             player.isInGame = false;
         }
         // If the computer won
@@ -94,7 +96,8 @@ public class TicTacToe extends Game {
             System.out.println("Partie null.");
         }
         scanner.nextLine();
-        System.out.println("\n--- Game finished ---\n");
+        //System.out.println("\n--- Game finished ---\n");
+
     }
 
     /**

@@ -21,7 +21,7 @@ public abstract class Game extends Place {
     public abstract void removePlayer();
 
     public void winner(){
-        System.out.println("[*] : Congratulations, you have won " + this.getName() + " mini-game, you can go back to the hub !");
+        System.out.println("[*] : Congratulations, you have won " + this.getName() + " mini-game, you can go back to the MainRoom !");
     }
 
     public void lose(Player player){

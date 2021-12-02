@@ -19,7 +19,7 @@ public class FindNumber extends Game {
 
     public FindNumber(){
         super("FindNumber",
-                " In this game you have to find a number thought by the man",
+                " In this game you have to find the number thought by the NPC",
                 new NPC("Square Guard",new Knife()),genExit2Ways(new HashMap<>(),"FindNumber","MainRoom"));
     }
 
@@ -38,10 +38,10 @@ public class FindNumber extends Game {
         int rand = (int) (Math.random() * (MAX_NUMBER));
         int chosenNumber;
         int attempt = MAX_ATTEMPT;
-
+        player.isInGame = true;
         System.out.println("\n--- Game launched ---\n");
 
-        this.getNpc().dialog(" In this game you have to find a number thought by the man");
+        this.getNpc().dialog(" In this game you have to find the number i'm thinking about :)");
 
         while (attempt > 0) {
 
@@ -71,8 +71,11 @@ public class FindNumber extends Game {
                     } else if (rand < chosenNumber) {
                         this.getNpc().dialog(" It's less!");
                     } else {
-                        this.winner();
                         this.removePlayer();
+                        this.winner();
+                        if (this.getNpc().hasItem()) {
+                            this.getNpc().dialog("[*] Before you go, take this " + this.getNpc().getItem().getName() + " with you. \n[<help take> if you don't know how to take an item]");
+                        }
                         player.isInGame = false;
                         break;
                     }
@@ -85,7 +88,7 @@ public class FindNumber extends Game {
 
         scanner.nextLine();
 
-        System.out.println("\n--- Game finished ---\n");
+        // System.out.println("\n--- Game finished ---\n");
 
     }
 

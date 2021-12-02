@@ -35,7 +35,7 @@ public class GuessMyWord extends Game {
         String usrAnswer;
         int round = 0;
         int nbWins = 0;
-
+        player.isInGame = true;
         System.out.println("\n--- Game launched ---\n");
         while (round < NB_TRIES)
         {
@@ -60,12 +60,15 @@ public class GuessMyWord extends Game {
         if (nbWins > 0) {
             this.removePlayer();
             winner();
-            this.getNpc().dialog("[*] Before you go, take this " + this.getNpc().getItem() + " with you. \n[<help take> if you don't know how to take an item]");
+            if (this.getNpc().hasItem()) {
+                this.getNpc().dialog("[*] Before you go, take this " + this.getNpc().getItem().getName() + " with you. \n[<help take> if you don't know how to take an item]");
+            }
             player.isInGame = false;
         }
         else {
             lose(player);
         }
+
     }
 
 
