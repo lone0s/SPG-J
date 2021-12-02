@@ -12,7 +12,9 @@ import java.util.Scanner;
 
 public class TicTacToe extends Game {
     public TicTacToe() {
-        super("TicTacToe", "Description du jeu",
+        super("TicTacToe",
+                "This game consists of aligning three identical symbols vertically, " +
+                        "horizontally or diagonally to win the game, on a grid of 3x3 squares",
                 new NPC("Circle Guard",new Gun()),
                 genExit2Ways(new HashMap<>(),"TicTacToe","MainRoom"))
         ;
