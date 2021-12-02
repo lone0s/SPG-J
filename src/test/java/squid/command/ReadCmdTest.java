@@ -1,10 +1,7 @@
 package squid.command;
 
 import org.junit.Test;
-import squid.character.Player;
-import squid.place.Place;
 
-import java.util.List;
 
 import static org.junit.Assert.*;
 
