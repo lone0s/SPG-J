@@ -3,6 +3,7 @@ package squid.place.game.GuessMyWord;
 import squid.Start;
 import squid.character.NPC;
 import squid.character.Player;
+import squid.item.Mag;
 import squid.place.Game;
 
 import java.util.ArrayList;
@@ -15,7 +16,7 @@ public class GuessMyWord extends Game {
 
 
     public GuessMyWord() {
-        super("GuessMyWord","Can you guess what word i'm thinking about? \nYou'll get to try your luck three times. \nYou need to get one good word to pass this game. \nGood luck.",new NPC("Big Brain NPC"), genExit2Ways(new HashMap<>(),"GuessMyWord","MainRoom"));
+        super("GuessMyWord","Can you guess what word i'm thinking about? \nYou'll get to try your luck three times. \nYou need to get one good word to pass this game. \nGood luck.",new NPC("Big Brain", new Mag()), genExit2Ways(new HashMap<>(),"GuessMyWord","MainRoom"));
     }
 
     @Override
@@ -57,7 +58,10 @@ public class GuessMyWord extends Game {
             round++;
         }
         if (nbWins > 0) {
+            this.removePlayer();
             winner();
+            this.getNpc().dialog("[*] Before you go, take this " + this.getNpc().getItem() + " with you. \n[<help take> if you don't know how to take an item]");
+            player.isInGame = false;
         }
         else {
             lose(player);

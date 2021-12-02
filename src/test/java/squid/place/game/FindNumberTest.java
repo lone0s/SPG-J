@@ -5,6 +5,7 @@ import squid.character.Player;
 import org.junit.Before;
 import org.junit.Test;
 import squid.exit.Exit;
+import squid.item.Knife;
 import squid.place.Place;
 
 import java.util.ArrayList;
@@ -21,7 +22,7 @@ public class FindNumberTest {
     @Before
     public void setUp() {
         world = new ArrayList<>();
-        place = new Place("Mj1", "Random desc", new NPC("Thierry"),Place.genExit2Ways(new HashMap<String, Exit>(),"Mj1","Hub"));
+        place = new Place("Mj1", "Random desc", new NPC("Thierry",new Knife()),Place.genExit2Ways(new HashMap<String, Exit>(),"Mj1","Hub"));
         world.add(place);
         findNumber = new FindNumber();
         player = new Player("HOHOHOHOHOHOHOHOOO", place, world );

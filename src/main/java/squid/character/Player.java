@@ -13,6 +13,7 @@ public class Player extends Character{
     static final int DEFAULT_LIVE = 1;
     private Place cur_place;
     private Boolean isLose = false;
+    public Boolean isInGame = false;
     private final List<Item> items;
     private final List<Place> world;
     /**
@@ -44,6 +45,11 @@ public class Player extends Character{
         this.items.add(item);
         System.out.println("[*] " + item.getName() +
                 " is now in your inventory");
+    }
+
+    public void takeItemFromNpc() {
+        this.addItem(this.getPlace().getNpc().getItem());
+        this.getPlace().getNpc().removeItem();
     }
 
     /**
@@ -78,6 +84,7 @@ public class Player extends Character{
 
         if (this.cur_place instanceof Game game) {
             game.play(this);
+            this.isInGame = true;
         } else {
             System.out.println("[*] You are not in a game !");
         }
@@ -90,6 +97,6 @@ public class Player extends Character{
             System.out.println("[*] You are now in the " + this.cur_place.getName() + " map");
         }
         else
-            System.out.println("[*] You are already on this map");
+            System.out.println("[*] You are already on this map !");
     }
 }

@@ -1,5 +1,6 @@
 package squid.character;
 
+import squid.item.Empty;
 import squid.item.Knife;
 import org.junit.Before;
 import org.junit.Test;
@@ -19,9 +20,9 @@ public class PlayerTest {
     @Before
     public void setUp() {
         List<Place> world = new ArrayList<>();
-        place = new Place("Mj1", "Random desc", new NPC("Thierry"),Place.genExit2Ways(new HashMap<String,Exit>(),"Mj1","Hub"));
+        place = new Place("Mj1", "Random desc", new NPC("Thierry", new Empty()),Place.genExit2Ways(new HashMap<String,Exit>(),"Mj1","Hub"));
         world.add(place);
-        world.add(new Place("Hub","Rdm Desc",new NPC ("Henry"),Place.genExit2Ways(new HashMap<String,Exit>(),"Hub","Mj1")));
+        world.add(new Place("Hub","Rdm Desc",new NPC ("Henry", new Empty()),Place.genExit2Ways(new HashMap<String,Exit>(),"Hub","Mj1")));
         joueur = new Player("Joueur 1", world.get(0),world);
         couteaux = new Knife();
     }

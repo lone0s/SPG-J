@@ -2,6 +2,8 @@ package squid.place.game.TicTacToe;
 
 import squid.character.NPC;
 import squid.character.Player;
+import squid.item.Empty;
+import squid.item.Gun;
 import squid.place.Game;
 
 import java.util.HashMap;
@@ -11,7 +13,7 @@ import java.util.Scanner;
 public class TicTacToe extends Game {
     public TicTacToe() {
         super("TicTacToe", "Description du jeu",
-                new NPC("GB_NPC"),
+                new NPC("GB_NPC",new Gun()),
                 genExit2Ways(new HashMap<>(),"TicTacToe","MainRoom"))
         ;
     }
@@ -79,6 +81,8 @@ public class TicTacToe extends Game {
         if (winPlay(boardGame).getSymbol().equals(symbolPlayer.getSymbol())) {
             this.removePlayer();
             winner();
+            this.getNpc().dialog("[*] Before you go, take this " + this.getNpc().getItem() + " with you. \n[<help take> if you don't know how to take an item]");
+            player.isInGame = false;
         }
         // If the computer won
         else if (winPlay(boardGame).getSymbol().equals(symbolNPC.getSymbol())) {

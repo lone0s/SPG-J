@@ -3,6 +3,7 @@ package squid.place.game;
 import squid.character.NPC;
 import squid.character.Player;
 import squid.exit.Exit;
+import squid.item.Empty;
 import squid.place.Game;
 
 import java.util.HashMap;
@@ -13,7 +14,7 @@ public class GlassBridge extends Game {
 
     public GlassBridge() {
         super("GlassBridge", "The object of the game is to cross the bridge without falling on fragile glass.",
-                new NPC("GB_NPC"), genExit2Ways(new HashMap<>(),"GlassBridge","MainRoom"));
+                new NPC("GB_NPC",new Empty()), genExit2Ways(new HashMap<>(),"GlassBridge","MainRoom"));
     }
 
     @Override
@@ -88,10 +89,13 @@ public class GlassBridge extends Game {
 
         if (gameWin) {
             winner();
+            player.isInGame = false;
         }
         else {
             lose(player);
         }
+
+
     }
 
     /**

@@ -12,14 +12,16 @@ public abstract class Item {
      * @param name Indique le nom de l'squid.item
      * @param description Explique l'utilisation de l'squid.item
      */
-    Item(String name, String description) {
+    public Item(String name, String description) {
         this.name = name;
         this.description = description;
     }
 
+
     public String getName(){
         return this.name;
     }
+
 
     public void getDescription(){
         System.out.println(this.description);

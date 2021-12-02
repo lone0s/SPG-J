@@ -5,6 +5,7 @@ import org.junit.Test;
 import squid.character.NPC;
 import squid.character.Player;
 import squid.exit.Exit;
+import squid.item.Empty;
 import squid.place.Place;
 
 import java.util.ArrayList;
@@ -20,7 +21,7 @@ public class MarblesTest {
     @Before
     public void setUp() {
         world = new ArrayList<>();
-        place = new Place("Mj1", "Random desc", new NPC("Thierry"),Place.genExit2Ways(new HashMap<String, Exit>(),"Mj1","Hub"));
+        place = new Place("Mj1", "Random desc", new NPC("Thierry",new Empty()),Place.genExit2Ways(new HashMap<String, Exit>(),"Mj1","Hub"));
         world.add(place);
         marblesGame = new MarblesGame();
         player = new Player("okMek", place, world );

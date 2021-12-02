@@ -4,6 +4,7 @@ import squid.Start;
 import squid.character.NPC;
 import squid.character.Player;
 import squid.exit.Exit;
+import squid.item.Empty;
 import squid.place.Game;
 
 import java.util.HashMap;
@@ -23,7 +24,7 @@ public class MarblesGame extends Game {
                 "You and the NPC have 10 marbles.\nEach round, the NPC picks a number between 1 and 10." +
                         "\nYou'll have to guess weither the picked number is even or not.\nFirst one to get to 0 marbles loses." +
                         "\nGood luck gamer."
-                ,new NPC("Marble Master"), genExit2Ways(new HashMap<>(),"MarblesGame","MainRoom"));
+                ,new NPC("Marble Master",new Empty()), genExit2Ways(new HashMap<>(),"MarblesGame","MainRoom"));
     }
 
     @Override
@@ -79,7 +80,9 @@ public class MarblesGame extends Game {
             }
         }
         if(npcMarbles <= 0){
+            this.removePlayer();
             winner();
+            player.isInGame = false;
         }
         else {
             lose(player);

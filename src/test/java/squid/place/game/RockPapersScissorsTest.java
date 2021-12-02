@@ -5,6 +5,7 @@ import squid.character.Player;
 import org.junit.Before;
 import org.junit.Test;
 import squid.exit.Exit;
+import squid.item.Empty;
 import squid.place.Place;
 
 import java.util.ArrayList;
@@ -21,7 +22,7 @@ public class RockPapersScissorsTest {
     @Before
     public void setUp() {
         world = new ArrayList<Place>();
-        place = new Place("Mj1", "Random desc", new NPC("Thierry"),Place.genExit2Ways(new HashMap<String, Exit>(),"Mj1","Hub"));
+        place = new Place("Mj1", "Random desc", new NPC("Thierry",new Empty()),Place.genExit2Ways(new HashMap<String, Exit>(),"Mj1","Hub"));
         rps = new RockPapersScissors();
         player = new Player("George", place,world);
     }

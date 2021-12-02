@@ -3,6 +3,7 @@ package squid.place.game;
 import squid.character.NPC;
 import squid.character.Player;
 import squid.exit.Exit;
+import squid.item.Empty;
 import squid.place.Game;
 import squid.Start;
 
@@ -27,7 +28,7 @@ public class RockPapersScissors extends Game {
 
         super("RockPaperScissors",
                 "In this game you need to beat the man who is in front of you.",
-                new NPC("Circle Guard"),
+                new NPC("Circle Guard",new Empty()),
                 genExit2Ways(new HashMap<>(),"RockPaperScissors","MainRoom")
         );
     }
@@ -69,10 +70,11 @@ public class RockPapersScissors extends Game {
         if (playerPoint == POINT_TO_WIN) {
             this.winner();
             this.removePlayer();
+            player.isInGame = false;
         } else {
             this.lose(player);
         }
-        System.out.println("[*] Press enter for finish the game !");
+        System.out.println("[*] Press enter to finish the game !");
         Start.scanner.nextLine();
 
         System.out.println("\n--- Game finished ---\n");

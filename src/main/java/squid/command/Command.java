@@ -38,7 +38,7 @@ public abstract class Command {
         commandList.add(new Look());
         commandList.add(new Go());
         commandList.add(new Use());
-
+        commandList.add(new Take());
         return commandList;
     }
 }

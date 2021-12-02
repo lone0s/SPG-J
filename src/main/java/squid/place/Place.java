@@ -2,6 +2,7 @@ package squid.place;
 
 import squid.character.NPC;
 import squid.exit.Exit;
+import squid.item.Empty;
 import squid.place.game.FindNumber;
 import squid.place.game.GlassBridge;
 import squid.place.game.GuessMyWord.GuessMyWord;
@@ -62,7 +63,7 @@ public class Place {
     public static List<Place> genAllPlaces(){
 
         List<Place> placeList = new ArrayList<>();
-        NPC mainnpc = new NPC("Triangle Guard");
+        NPC mainnpc = new NPC("Triangle Guard",new Empty());
         HashMap<String,Exit> hubExits = new HashMap<>();
 
         // Exits Hub

@@ -3,6 +3,7 @@ package squid.place.game;
 import squid.character.NPC;
 import squid.character.Player;
 import squid.exit.Exit;
+import squid.item.Knife;
 import squid.place.Game;
 import squid.Start;
 import squid.place.Place;
@@ -19,7 +20,7 @@ public class FindNumber extends Game {
     public FindNumber(){
         super("FindNumber",
                 " In this game you have to find a number thought by the man",
-                new NPC("Square Guard"),genExit2Ways(new HashMap<>(),"FindNumber","MainRoom"));
+                new NPC("Square Guard",new Knife()),genExit2Ways(new HashMap<>(),"FindNumber","MainRoom"));
     }
 
     @Override
@@ -72,6 +73,7 @@ public class FindNumber extends Game {
                     } else {
                         this.winner();
                         this.removePlayer();
+                        player.isInGame = false;
                         break;
                     }
                     this.getNpc().dialog(" You only have " + attempt + " attempts left!");
