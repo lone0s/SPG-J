@@ -2,11 +2,11 @@
 
 - Install Java : 
 
-Java link 
+https://www.java.com/fr/download/
 
 - Install Java SE
 
-Java SE link 
+https://www.oracle.com/java/technologies/java-se-glance.html
 
 - Open a command terminal in the game directory.
 
