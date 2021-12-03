@@ -88,18 +88,20 @@ public class MarblesGame extends Game {
             lose(player);
         }
     }
-
+    // Permet de générer une valeur aléatoire sur un intervalle fixé
     public int rdmValue() {
         Random rdmGenerator = new Random();
         return (rdmGenerator.nextInt(MAX_RDM - MIN_RDM)+ MIN_RDM);
     }
-
+    // Permet de savoir si l'utilisateur a répondu par yes/no ou pas
     public boolean checkYesNo(String x) {
         return (x.equals("yes") || x.equals("no"));
     }
+    // Permet de vérifier si un entier est pair ou impair
     public boolean isEven(int x) {
         return (x%2 == 0);
     }
+    // Permet de vérifier si un joueur a gagner la partie ou non
     public boolean someoneWon(int nbMarblesPlayer, int nbMarblesNPC) {
         return (nbMarblesPlayer <= 0 || nbMarblesNPC <= 0);
     }

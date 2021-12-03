@@ -33,7 +33,9 @@ public class Exit {
     public String toString() {
             return ("[" + this.Source + "] --> [" + this.Destination + "]");
     }
-
+    /*
+     *  Fonction retournant les Places accesssibles à un jouueur
+     */
     public static void printAllowedExits (HashMap<String,Exit> exits, Place playerLoc) {
         Set<String> myKeys = exits.keySet();
         myKeys.remove(playerLoc.getName());

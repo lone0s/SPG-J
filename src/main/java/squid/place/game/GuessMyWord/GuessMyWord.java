@@ -71,6 +71,7 @@ public class GuessMyWord extends Game {
 
     }
 
+    // Permet de comparer si un mot est égal a un autre
 
     public boolean compare2words(String fstWrd,String scdWrd) {
         return (fstWrd.equals(scdWrd));

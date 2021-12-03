@@ -12,6 +12,8 @@ import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
 
+import static org.junit.Assert.*;
+
 public class MarblesTest {
     private MarblesGame marblesGame;
     private Player player;
@@ -31,4 +33,6 @@ public class MarblesTest {
     public void playTest() {
         marblesGame.play(player);
     }
+
+
 }

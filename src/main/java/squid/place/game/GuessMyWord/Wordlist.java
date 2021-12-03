@@ -21,21 +21,31 @@ public class Wordlist {
     public List<String> getWords() {
         return Words;
     }
-
+    /*
+    * Affichage des mots d'un dictionnaire
+     */
     public void printWords() {
         for (int i = 0 ; i < this.Words.size() ; i++) {
             System.out.println("Word [" + (i+1) + "] : " + this.Words.get(i));
         }
     }
+    /*
+    *   Permet de récuperer un mot précis d'une liste de mots
+     */
+
     public String pickSpecificWord(int i){
         return this.Words.get(i);
     }
+
+
     public String pickRdmWord() {
         Random rdm = new Random();
         int rdmVal = rdm.nextInt(this.Words.size());
         return this.Words.get(rdmVal);
     }
-
+    /*
+    *   Genere l'ensemble des mots clés des listes
+     */
     public static ArrayList<String> genKeyWords() {
         ArrayList<String> myKeywords = new ArrayList<>();
         myKeywords.add("Animals");
@@ -108,7 +118,9 @@ public class Wordlist {
         myGames.add("Pacman");
         return new Wordlist(myGames);
     }
-
+    /*
+    * Permet de generer une liste de mots spécifique a partir d'un String correspondant a un mot clef
+     */
     public static Wordlist genSpecificWordList(String myWord){
         Wordlist myWords = new Wordlist(new ArrayList<>());
         switch (myWord) {

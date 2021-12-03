@@ -8,7 +8,7 @@ import squid.exit.Exit;
 import squid.item.Empty;
 import squid.place.Place;
 import squid.place.game.GuessMyWord.GuessMyWord;
-
+import static org.junit.Assert.*;
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
@@ -18,7 +18,6 @@ public class GuessMyWordTest {
     private Player player;
     private Place place;
     private List<Place> world;
-
 
     @Before
     public void setUp() {
@@ -33,4 +32,10 @@ public class GuessMyWordTest {
     public void playTest() {
         guessMyWordgame.play(player);
     }
+    @Test
+    public void assertExits() {
+        assertEquals(place.getExits().get("Hub").getSrc(),"Mj1");
+        assertEquals(place.getExits().get("Hub").getDest(),"Hub");
+    }
+
 }

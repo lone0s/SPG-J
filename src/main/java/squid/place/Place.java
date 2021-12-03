@@ -88,7 +88,9 @@ public class Place {
         placeList.add(new GuessMyWord());
         return placeList;
     }
-
+    /*
+    * Fonction permettant de parcourir un monde et qui retourne la Place correspondante a la Place cherchée
+     */
     public static Place findPlace (String placeName, List<Place> map) {
         int indice = 0;
         for(int i = 0; i < map.size(); i++) {
@@ -112,7 +114,9 @@ public class Place {
 
 
 
-    //public static boolean hasExit(Collection<Exit> mapExits,String mapName) {}
+    /*
+    *   Permet de générer les exits dans les deux sens d'une place "Source" à une place "Destination"
+     */
     public static HashMap<String,Exit> genExit2Ways(HashMap<String,Exit> Exits,String mapSrc, String mapDest) {
         Exit Src2Dest = new Exit(mapSrc,mapDest);
         Exit Dest2Src = new Exit(mapDest,mapSrc);
