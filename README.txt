@@ -8,9 +8,11 @@ https://www.java.com/fr/download/
 
 https://www.oracle.com/java/technologies/java-se-glance.html
 
-- Open a command terminal in the game directory.
+- Open a command terminal in the directory project/src/main/java.
 
-- Run the command " java -jar spg.jar ".
+- Run the command "javac squid/Start.java".
+
+- Run the command "java squid/Start"
 
 - Have fun.
 
